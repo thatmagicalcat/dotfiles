@@ -1,6 +1,7 @@
 # theme = "catppuccin_mocha"
+# theme = "yellowed"
 
-theme = "gruvbox_mix_dark_hard"
+theme = "gruber-darker"
 
 [editor]
 line-number = "relative"
@@ -8,6 +9,9 @@ mouse = false
 idle-timeout = 100
 bufferline = "multiple"
 completion-trigger-len = 2
+
+[editor.soft-wrap]
+enable = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -41,7 +45,7 @@ newline = "none"
 [editor.whitespace.characters]
 space = "·"
 tab = "→"
-tabpad = "·"
+# tabpad = "·"
 
 [editor.indent-guides]
 render = true
@@ -49,6 +53,7 @@ character = '▏'
 
 [editor.gutters]
 layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
 [keys.normal]
 H = ":bp"
 L = ":bn"
@@ -56,4 +61,4 @@ C-f = ":format"
 C-l = ":sh leptosfmt ."
 C-x = ":buffer-close"
 C-r = ":reload"
-"backspace" = { r = ":sh cargo r" }
+"backspace" = { r = ":sh cargo run" }

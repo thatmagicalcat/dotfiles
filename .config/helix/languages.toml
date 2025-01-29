@@ -1,9 +1,21 @@
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+[language-server.glsl_analyzer]
+command = "glsl_analyzer"
+args = ["--stdio"]
+
 [language-server.gpt]
 command = "helix-gpt"
 args = ["--handler", "copilot"]
 
-[language-server.rust-analyzer.config]
-check.command = "clippy"
+[[language]]
+name = "glsl"
+auto-format = true
+file-types = ["glsl", "shader", "vert", "frag", "vs", "fs"]
+language-servers = [
+  "glsl_analyzer"
+]
 
 [[language]]
 name = "rust"
@@ -12,6 +24,7 @@ language-servers = [
   "rust-analyzer",
   # "gpt"
 ]
+
 
 [language.debugger]
 command = "lldb-vscode"
@@ -83,3 +96,5 @@ name = "launch"
 request = "launch"
 completion = [ { name = "entrypoint", completion = "filename", default = "lib/main.dart" } ]
 args = { program = "{0}" }
+
+
