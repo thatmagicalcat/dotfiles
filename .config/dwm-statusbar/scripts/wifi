@@ -1,4 +1,0 @@
-#!/bin/bash
-
-current_network=$(nmcli con show --active | getline 1 | linesplit '  ' 0)
-test "$current_network" = 'lo' && echo '| 󰖪 no wifi' || echo '|'   $current_network

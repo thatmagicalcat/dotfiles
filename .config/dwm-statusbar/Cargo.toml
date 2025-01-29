@@ -1,7 +1,13 @@
 [package]
-name = "dwm-statusbar"
+name = "dwmstatusbar"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-dwmblocks = "0.1.0"
+cmd_lib = "1.9.5"
+dwm-statusbar = "0.1.1"
+
+
+[[bin]]
+path = "src/main.rs"
+name = "dwm-statusbar"
