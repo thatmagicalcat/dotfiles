@@ -175,7 +175,7 @@ static const char dmenufont[]            = "monospace:size=10";
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb";
-static char normbgcolor[]                = "#222222";
+static char normbgcolor[]                = "#000000"; // 222222
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
@@ -185,17 +185,17 @@ static char selbordercolor[]             = "#e46f22";
 static char selfloatcolor[]              = "#e46f22";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
-static char titlenormbgcolor[]           = "#222222";
+static char titlenormbgcolor[]           = "#000000"; // 222222
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
 static char titleselfgcolor[]            = "#e46f22";
-static char titleselbgcolor[]            = "#222222";
+static char titleselbgcolor[]            = "#000000"; // 222222
 static char titleselbordercolor[]        = "#e46f22";
 static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
-static char tagsnormbgcolor[]            = "#222222";
+static char tagsnormbgcolor[]            = "#000000"; // 222222
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
@@ -206,11 +206,11 @@ static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#227799";
-static char hidnormbgcolor[]             = "#222222";
-static char hidselbgcolor[]              = "#222222";
+static char hidnormbgcolor[]             = "#000000"; // 222222
+static char hidselbgcolor[]              = "#000000"; // 222222
 
 static char urgfgcolor[]                 = "#bbbbbb";
-static char urgbgcolor[]                 = "#222222";
+static char urgbgcolor[]                 = "#000000"; // 000000
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
@@ -802,6 +802,8 @@ static const char *xkb_layouts[]  = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
+
 #if COMBO_PATCH && SWAPTAGS_PATCH && TAGOTHERMONITOR_PATCH
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      comboview,      {.ui = 1 << TAG} }, \
@@ -899,11 +901,24 @@ static const char *dmenucmd[] = {
 	NULL
 };
 
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
+static const char *xlens[]  = { "/home/thatmagicalcat/.cargo/bin/monocle", NULL };
 static const char *boostcmd[] = { "/home/wizard/.config/dwm/scripts/tlp-boost-switch.sh", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
 static const char *suspend[] = { "systemctl", "suspend", NULL };
 static const char *math[] = { "/home/wizard/.config/dwm/scripts/do_math.sh", NULL };
+
+#define S_PATH "/home/thatmagicalcat/.config/dwm/statusbar.sh"
+static const char* s_0[] = { S_PATH, "0", NULL };
+static const char* s_1[] = { S_PATH, "1", NULL };
+static const char* s_2[] = { S_PATH, "2", NULL };
+static const char* s_3[] = { S_PATH, "3", NULL };
+static const char* s_4[] = { S_PATH, "4", NULL };
+static const char* s_5[] = { S_PATH, "5", NULL };
+static const char* s_6[] = { S_PATH, "6", NULL };
+static const char* s_7[] = { S_PATH, "7", NULL };
+static const char* s_8[] = { S_PATH, "8", NULL };
+static const char* s_9[] = { S_PATH, "9", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -936,10 +951,24 @@ static const Key keys[] = {
 	#endif // KEYMODES_PATCH
 	{ MODKEY,                       XK_space,      spawn,                  {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_z,          spawn,                  {.v = xlens } },
 	{ MODKEY,                       XK_s,          spawn,                  {.v = screenshot } },
 	{ MODKEY,                       XK_Escape,     spawn,                  {.v = suspend } },
 	{ MODKEY|ShiftMask,             XK_m,          spawn,                  {.v = math } },
 	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = boostcmd } },
+
+	// statusbar stuff
+	{ ALTKEY,                       XK_0,      spawn,                  {.v = s_0 } },
+	{ ALTKEY,                       XK_1,      spawn,                  {.v = s_1 } },
+	{ ALTKEY,                       XK_2,      spawn,                  {.v = s_2 } },
+	{ ALTKEY,                       XK_3,      spawn,                  {.v = s_3 } },
+	{ ALTKEY,                       XK_4,      spawn,                  {.v = s_4 } },
+	{ ALTKEY,                       XK_5,      spawn,                  {.v = s_5 } },
+	{ ALTKEY,                       XK_6,      spawn,                  {.v = s_6 } },
+	{ ALTKEY,                       XK_7,      spawn,                  {.v = s_7 } },
+	{ ALTKEY,                       XK_8,      spawn,                  {.v = s_8 } },
+	{ ALTKEY,                       XK_9,      spawn,                  {.v = s_9 } },
+	
 	#if RIODRAW_PATCH
 	{ MODKEY,                       XK_Space,      riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,     riospawn,               {.v = termcmd } },
@@ -1048,16 +1077,16 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } },
 	{ MODKEY|Mod4Mask,              XK_o,          incrogaps,              {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_o,          incrogaps,              {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_6,          incrihgaps,             {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_6,          incrihgaps,             {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_7,          incrivgaps,             {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_7,          incrivgaps,             {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_8,          incrohgaps,             {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_8,          incrohgaps,             {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_9,          incrovgaps,             {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
+	// { MODKEY|Mod4Mask,              XK_6,          incrihgaps,             {.i = +1 } },
+	// { MODKEY|Mod4Mask|ShiftMask,    XK_6,          incrihgaps,             {.i = -1 } },
+	// { MODKEY|Mod4Mask,              XK_7,          incrivgaps,             {.i = +1 } },
+	// { MODKEY|Mod4Mask|ShiftMask,    XK_7,          incrivgaps,             {.i = -1 } },
+	// { MODKEY|Mod4Mask,              XK_8,          incrohgaps,             {.i = +1 } },
+	// { MODKEY|Mod4Mask|ShiftMask,    XK_8,          incrohgaps,             {.i = -1 } },
+	// { MODKEY|Mod4Mask,              XK_9,          incrovgaps,             {.i = +1 } },
+	// { MODKEY|Mod4Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } },
+	// { MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
+	// { MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	#endif // VANITYGAPS_PATCH
 	#if ALT_TAB_PATCH
 	{ Mod1Mask,                     XK_Tab,        alttabstart,            {0} },
