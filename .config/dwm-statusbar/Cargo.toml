@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 cmd_lib = "1.9.5"
-dwm-statusbar = "0.1.1"
+dwm-statusbar = { version = "0.1.1", path = "../../Code/rust/dwm-statsbar" }
 
 
 [[bin]]

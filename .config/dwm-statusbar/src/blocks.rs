@@ -39,7 +39,7 @@ pub fn battery() -> Option<String> {
     let status = split.nth(1)?.trim();
     let percentage = split.next()?.trim();
     let n = percentage.trim_end_matches('%').parse::<u8>().ok()?;
-    let indicator = if status != "Not charging" {
+    let indicator = if status == "Charging" {
         ""
     } else if n >= 75 {
         ""
@@ -72,17 +72,27 @@ pub fn cpu() -> Option<String> {
         "  {}% 󰏈 {}C 󰈐 {} RPM",
         cpu_percentage()?,
         cpu_temp()?,
-        cpu_fan()?
+        cpu_fan_speed()?
     ))
 }
 
 fn cpu_temp() -> Option<String> {
-    let binding = run! { sensors | grep "Package id 0" }.ok()?;
-    let line = binding.split("  ").nth(1)?;
-    line[1..line.len() - 4].parse().ok()
+    Some(
+        run! { sensors }
+            .ok()?
+            .lines()
+            .find(|i| i.starts_with("Package id 0"))
+            .unwrap()
+            .split(" ")
+            .filter(|i| !i.is_empty())
+            .nth(3)?
+            .trim_matches(['+', '.', 'C', ' '])
+            .trim_end_matches(".0")
+            .to_string(),
+    )
 }
 
-fn cpu_fan() -> Option<String> {
+fn cpu_fan_speed() -> Option<String> {
     Some(
         run! { sensors | grep cpu_fan }
             .ok()?
@@ -133,13 +143,13 @@ pub fn media() -> Option<String> {
 
     let mut out = vec![];
     for status in status {
-        let player = players.next().unwrap();
+        let player = players.next().unwrap_or("unknown player");
         let artist = artists
             .next()
             .map(|i| format!(" - {i}"))
             .unwrap_or_else(|| "".to_string());
-        let title = titles.next().unwrap();
-        let position = positions.next().unwrap();
+        let title = titles.next().unwrap_or("no title");
+        let position = positions.next().unwrap_or("--:--");
         let indicator = if status == "Playing" { "" } else { "" };
 
         out.push(format!(

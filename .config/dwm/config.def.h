@@ -902,6 +902,7 @@ static const char *dmenucmd[] = {
 };
 
 static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
+// static const char *termcmd[]  = { "ghostty", NULL };
 static const char *xlens[]  = { "/home/thatmagicalcat/.cargo/bin/monocle", NULL };
 static const char *boostcmd[] = { "/home/wizard/.config/dwm/scripts/tlp-boost-switch.sh", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };

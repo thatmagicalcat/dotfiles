@@ -8,7 +8,6 @@ line-number = "relative"
 mouse = false
 idle-timeout = 100
 bufferline = "multiple"
-completion-trigger-len = 2
 
 [editor.soft-wrap]
 enable = true
@@ -25,7 +24,7 @@ hidden = false
 left = ["mode", "spinner"]
 center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
-separator = "│"
+separator = "|"
 
 [editor.lsp]
 display-messages = true
@@ -49,7 +48,7 @@ tab = "→"
 
 [editor.indent-guides]
 render = true
-character = '▏'
+character = '|'
 
 [editor.gutters]
 layout = ["diff", "diagnostics", "line-numbers", "spacer"]

@@ -46,8 +46,6 @@ dependencies = [
 [[package]]
 name = "dwm-statusbar"
 version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5beca03ae4872c99961fedd20e3d53be689f8278f9d3592af64510a920c37412"
 
 [[package]]
 name = "dwmstatusbar"
