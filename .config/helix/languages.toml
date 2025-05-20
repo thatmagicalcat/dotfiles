@@ -1,6 +1,9 @@
 [language-server.rust-analyzer.config]
 check.command = "clippy"
 
+[language-server.rubylsp]
+command = "ruby-lsp"
+
 [language-server.wat]
 command = "wat_server"
 
@@ -19,18 +22,17 @@ command = "helix-gpt"
 args = ["--handler", "copilot"]
 
 [[language]]
+name = "ruby"
+language-servers = [
+  "rubylsp"
+]
+
+
+[[language]]
 name = "wat"
 auto-format = false
 language-servers = [
   "wat"
-]
-
-[[language]]
-name = "glsl"
-auto-format = false
-file-types = ["glsl", "shader", "vert", "frag", "vs", "fs"]
-language-servers = [
-  "glsl_analyzer"
 ]
 
 [[language]]
@@ -45,10 +47,15 @@ name = "rust"
 auto-format = false
 language-servers = [
   "rust-analyzer",
-  "discordrpc",
-  "gpt"
 ]
 
+[[language]]
+name = "glsl"
+auto-format = false
+file-types = ["glsl", "shader", "vert", "frag", "vs", "fs"]
+language-servers = [
+  "glsl_analyzer"
+]
 
 [language.debugger]
 command = "lldb-vscode"
