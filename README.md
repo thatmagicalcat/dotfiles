@@ -2,9 +2,9 @@
 
 ## Current dwm config
 ### Screenshots:
-![dwm](Screenshots/dwm1.png)
-![dwm](Screenshots/dwm2.png)
-![dwm](Screenshots/dwm3.png)
+![dwm](Screenshots/dwm1.png#)
+![dwm](Screenshots/dwm2.png#)
+![dwm](Screenshots/dwm3.png#)
 
 1. Terminal - alacritty
 2. Text Editor - Helix
