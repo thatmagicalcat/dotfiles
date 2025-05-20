@@ -1,21 +1,26 @@
+[general]
+live_config_reload = true
+
 [cursor]
 style = "Block"
 
 [env]
-TERM = "xterm-256color"
+TERM = "alacritty"
 
 [font]
 size = 12
 
 [font.bold]
-family = "JetBrainsMono"
+family = "Jetbrains Mono"
+style = "ExtraBold"
 
 [font.bold_italic]
 family = "JetBrainsMono"
-# size = 12.0
+style = "Bold Italic"
 
 [font.italic]
 family = "JetBrainsMono"
+style = "Italic"
 
 [font.normal]
 family = "JetBrainsMono"
@@ -82,10 +87,37 @@ title = "Alacritty"
 columns = 100
 lines = 30
 
-[general]
-live_config_reload = true
-
 # [window.class]
 # general = "Alacritty"
 # instance = "Alacritty"
 
+[colors.primary]
+background = '#0a0c10'
+foreground = '#f0f3f6'
+
+# Cursor colors
+[colors.cursor]
+text = '#0a0c10'
+cursor = '#f0f3f6'
+
+# Normal colors
+[colors.normal]
+black = '#7a828e'
+red = '#ff9492'
+green = '#26cd4d'
+yellow = '#f0b72f'
+blue = '#71b7ff'
+magenta = '#cb9eff'
+cyan = '#39c5cf'
+white = '#d9dee3'
+
+# Bright colors
+[colors.bright]
+black = '#9ea7b3'
+red = '#ffb1af'
+green = '#4ae168'
+yellow = '#f7c843'
+blue = '#91cbff'
+magenta = '#cb9eff'
+cyan = '#39c5cf'
+white = '#d9dee3'
