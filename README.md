@@ -4,6 +4,7 @@
 ### Screenshots:
 ![dwm](Screenshots/dwm1.png)
 ![dwm](Screenshots/dwm2.png)
+![dwm](Screenshots/dwm3.png)
 
 1. Terminal - alacritty
 2. Text Editor - Helix
@@ -13,4 +14,3 @@
 ### Screenshots:
 ![hyprland](Screenshots/hyprland1.png)
 ![hyprland](Screenshots/hyprland2.png)
-
