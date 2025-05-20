@@ -79,8 +79,8 @@ static int floatposgrid_x                = 5;  /* float grid columns */
 static int floatposgrid_y                = 5;  /* float grid rows */
 #endif // FLOATPOS_PATCH
 #if RIODRAW_PATCH
-static const char slopspawnstyle[]       = "-t 0 -c 0.92,0.85,0.69,0.3 -o"; /* do NOT define -f (format) here */
-static const char slopresizestyle[]      = "-t 0 -c 0.92,0.85,0.69,0.3"; /* do NOT define -f (format) here */
+static const char slopspawnstyle[]       = "-t 0 -l -c 0.3,0.4,0.6,0.4 -o"; /* do NOT define -f (format) here */
+static const char slopresizestyle[]      = "-t 0 -l -c 0.3,0.4,0.6,0.4"; /* do NOT define -f (format) here */
 static const int riodraw_borders         = 0;  /* 0 or 1, indicates whether the area drawn using slop includes the window borders */
 #if SWALLOW_PATCH
 static const int riodraw_matchpid        = 1;  /* 0 or 1, indicates whether to match the PID of the client that was spawned with riospawn */
@@ -263,7 +263,7 @@ static char selfloatbgcolor[]            = "#117799";
 #endif // BAR_FLEXWINTITLE_PATCH
 
 #if BAR_ALPHA_PATCH
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0x90;
 static const unsigned int borderalpha = OPAQUE;
 static const unsigned int alphas[][3] = {
 	/*                       fg      bg        border     */
@@ -462,9 +462,9 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "web", "sys", "dev", "msg", "msc", "res", "bkg", "doc", "misc" },
+	[DEFAULT_TAGS]        = { "WEB", "SYS", "DEV", "MSG", "MSC", "RES", "BKG", "DOC", "MISC" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
-	[ALT_TAGS_DECORATION] = { "[web]", "[sys]", "[dev]", "[msg]", "[msc]", "[res]", "[bkg]", "[doc]", "[misc]" },
+	[ALT_TAGS_DECORATION] = { "web!", "sys!", "dev!", "msg!", "msc!", "res!", "bkg!", "doc!", "misc!", },
 };
 
 #if BAR_TAGGRID_PATCH
@@ -525,9 +525,9 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "firefox", .tags = 1 << 0)
+	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
 	RULE(.class = "discord", .tags = 1 << 3)
-	RULE(.class = "YouTube Music", .tags = 1 << 4)
+	RULE(.class = "com.github.th_ch.youtube_music", .tags = 1 << 4)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -953,27 +953,27 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,      spawn,                  {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_z,          spawn,                  {.v = xlens } },
-	{ MODKEY,                       XK_s,          spawn,                  {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_s,          spawn,                  {.v = screenshot } },
 	{ MODKEY,                       XK_Escape,     spawn,                  {.v = suspend } },
 	{ MODKEY|ShiftMask,             XK_m,          spawn,                  {.v = math } },
 	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = boostcmd } },
 
 	// statusbar stuff
-	{ ALTKEY,                       XK_0,      spawn,                  {.v = s_0 } },
-	{ ALTKEY,                       XK_1,      spawn,                  {.v = s_1 } },
-	{ ALTKEY,                       XK_2,      spawn,                  {.v = s_2 } },
-	{ ALTKEY,                       XK_3,      spawn,                  {.v = s_3 } },
-	{ ALTKEY,                       XK_4,      spawn,                  {.v = s_4 } },
-	{ ALTKEY,                       XK_5,      spawn,                  {.v = s_5 } },
-	{ ALTKEY,                       XK_6,      spawn,                  {.v = s_6 } },
-	{ ALTKEY,                       XK_7,      spawn,                  {.v = s_7 } },
-	{ ALTKEY,                       XK_8,      spawn,                  {.v = s_8 } },
-	{ ALTKEY,                       XK_9,      spawn,                  {.v = s_9 } },
+	{ MODKEY | ALTKEY,                       XK_0,      spawn,                  {.v = s_0 } },
+	{ MODKEY | ALTKEY,                       XK_1,      spawn,                  {.v = s_1 } },
+	{ MODKEY | ALTKEY,                       XK_2,      spawn,                  {.v = s_2 } },
+	{ MODKEY | ALTKEY,                       XK_3,      spawn,                  {.v = s_3 } },
+	{ MODKEY | ALTKEY,                       XK_4,      spawn,                  {.v = s_4 } },
+	{ MODKEY | ALTKEY,                       XK_5,      spawn,                  {.v = s_5 } },
+	{ MODKEY | ALTKEY,                       XK_6,      spawn,                  {.v = s_6 } },
+	{ MODKEY | ALTKEY,                       XK_7,      spawn,                  {.v = s_7 } },
+	{ MODKEY | ALTKEY,                       XK_8,      spawn,                  {.v = s_8 } },
+	{ MODKEY | ALTKEY,                       XK_9,      spawn,                  {.v = s_9 } },
 	
 	#if RIODRAW_PATCH
-	{ MODKEY,                       XK_Space,      riospawnsync,           {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return,     riospawn,               {.v = termcmd } },
-	{ MODKEY,                       XK_s,          rioresize,              {0} },
+	{ MODKEY | ALTKEY,                       XK_space,  riospawnsync,           {.v = dmenucmd } },
+	{ MODKEY | ALTKEY,                       XK_Return, riospawn,               {.v = termcmd } },
+	{ MODKEY,                                XK_s,      rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	#if TOGGLETOPBAR_PATCH
