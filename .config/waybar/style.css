@@ -1,256 +1,238 @@
-@import url("colors-main.css");
+@import "color.css";
 
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono NF";
-  font-weight: bold;
+  color: @white;
+  border: 0;
+  padding: 0 0;
+  margin: -4;
+  font-family: "JetbrainsMono Nerd Font";
   font-size: 14px;
-  min-height: 0px;
 }
 
 window#waybar {
-  background: @background;
-  color: @text;
-}
-
-tooltip {
-  background: @base;
-  opacity: 0.8;
-}
-
-tooltip label {
-  color: @text;
-}
-
-tooltip {
-  animation-name: appear;
-  animation-duration: 0.1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0.8;
-  }
-}
-
-#workspaces button {
-  padding: 0px 6px;
-  padding-top: 3px;
-  color: @workspace_inactive;
-  text-shadow: none;
-  min-width: 20px;
-}
-
-#workspaces {
-  background: @background_alt;
-}
-
-#workspaces button.active {
-  padding-top: 0px;
-  /* border-top: solid @workspace_active 3px; */
-  color: @workspace_active;
-  /* text-shadow: 0 0 4px @glow; */
-  text-shadow: none;
-}
-
-#workspaces button.focused {
-  color: @workspace_active;
-  /* text-shadow: 0 0 4px @glow; */
-  text-shadow: none;
-}
-
-#workspaces button.urgent {
-  color: @base;
-  background: @urgent;
-  transition: all 0.2s ease-in;
-}
-
-#workspaces button:hover {
-  color: @text;
+  border-right: 0px solid shade(@base, 1.1);
+  background-color: shade(@base, 1);
 }
 
 #tags {
-  background: @base;
+  padding-right: 3px;
+  padding-top: 20px;
+  background-color: @base;
+  opacity: 1;
 }
 
 #tags button {
-  padding: 0px 6px;
-  padding-top: 3px;
-  color: @workspace_inactive;
-  text-shadow: none;
-  min-width: 20px;
+  color: @base;
+  border-radius: 8px;
+  /* min-height: 35px; */
+  /* min-width: 35px; */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 2px 0;
 }
 
-#tags button.focused {
-  padding-top: 0px;
-  border-top: solid @workspace_active 3px;
-  color: @workspace_active;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-}
-
-#tags button.occupied {
-  color: @workspace_active;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+#tags button.urgent * {
+  color: @base;
 }
 
 #tags button.urgent {
   color: @base;
-  background: @urgent;
+  box-shadow: none;
+  text-shadow: none;
+  border: 0px;
+  border-radius: 10px;
+  background: none;
 }
 
-#tags button:hover {
-  color: @text;
+#tags button.occupied {
+  opacity: 0.7;
+  font-weight: bold;
 }
 
-#language,
-#custom-notification,
-#custom-launch,
-#custom-lock_screen,
-#custom-light_dark,
-#custom-power_btn,
-#custom-power_profile,
-#custom-weather,
-#window,
-#custom-updates,
+#tags button.focused * {
+  color: @red;
+}
+
 #clock,
+#custom-swap,
+#custom-clipboard,
+#custom-background,
 #battery,
-#pulseaudio,
-#pulseaudio.microphone,
-#network,
-#tray,
-#temperature,
-#workspaces,
-#idle_inhibitor,
-#backlight {
-  padding: 0px 10px;
-  background: @background_alt;
-}
-
-#custom-separator_l,
-#custom-separator_r {
-  font-size: 25px;
-  color: @base;
-}
-
-#idle_inhibitor {
-  font-size: 16px;
-}
-
-#idle_inhibitor.activated {
-  color: @idle_inhibit;
-}
-
 #cpu,
 #memory,
-#disk {
-  padding: 0px 10px;
-  /* border-top: solid @monitor_resources 3px; */
-  color: @custom;
-}
-
-#mpris,
-#custom-mpris,
-#custom-media_play,
-#custom-media_next,
-#custom-media_previous,
-#custom-media_volume {
-  padding: 0px 10px;
-  margin: 0;
-  /* border-top: solid @media_player 3px; */
-}
-
-#custom-cpu {
-  padding: 0px 10px;
-  color: @custom;
-  /* border-top: solid @media_player 3px; */
-}
-
-#custom-date {
-  padding: 0px 15px;
-  border-bottom: solid @media_player 3px;
-}
-
-#custom-mpris,
-#mpris {
+#idle_inhibitor,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#tray,
+#mpd,
+#custom-temp,
+#custom-fan {
+  padding-bottom: 6px;
   padding: 0px 5px;
-  color: @media_player;
+  border-style: solid;
+  background-color: shade(@base, 1.1);
+  opacity: 1;
+  margin: 0 8px;
+  border-radius: 10px;
 }
 
-#custom-media_volume {
-  margin-right: 10px;
+/* Module styles */
+#mode {
+  color: @mauve;
+  margin-bottom: 5px;
 }
 
-#custom-media_previous {
-  margin-left: 20px;
+#mpd {
+  color: @base;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-#custom-launch {
-  font-size: 20px;
-  text-shadow: 0px 0px 6px @shadow;
-  color: @text_alt;
-  padding: 0px 10px;
-  padding-right: 15px;
+#custom-swap {
+  color: @base;
+  margin-top: 10px;
+  background-color: @base;
 }
 
-
-#custom-power_btn {
-  padding-right: 20px;
+#custom-background {
+  border-radius: 10px 10px 0px 0px;
+  background-color: @base;
+  color: white;
+  padding: 14px 5px 5px 5px;
 }
 
-#window {
-  min-width: 600px;
+#clock {
+  color: @white;
+  padding-bottom: 10px;
+  margin: 10px 8px;
 }
 
-#workspaces {
-  padding-right: 0px;
-  padding-left: 5px;
+#backlight {
+  color: @yellow;
+  border-radius: 10px 10px 0 0;
 }
 
-#pulseaudio {
-  color: @text_alt;
-  min-width: 52px;
-}
-
-#pulseaudio.microphone {
-  color: @media_player;
-  min-width: 52px;
-}
-
-#battery,
-#battery.good,
-#battery.warning {
-  color: @text;
-}
-
-#battery.critical {
-  color: @critical;
+#battery {
+  color: @white;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 10px;
 }
 
 #battery.charging {
-  color: @text;
-  animation-name: battery;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  color: @white;
 }
 
-@keyframes battery {
-  0% {
-    color: @healthy;
+@keyframes blink {
+  to {
+    color: @red;
   }
+}
 
-  50% {
-    color: @text;
-  }
+#battery.critical:not(.charging) {
+  color: #bf616a;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
-  100% {
-    color: @healthy;
-  }
+#cpu {
+  color: @white;
+}
+
+#cpu #cpu-icon {
+  color: @white;
+}
+
+#memory {
+  color: @white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+}
+
+#network.disabled {
+  color: #bf616a;
+}
+
+#network {
+  color: @white;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+#network.disconnected {
+  color: #bf616a;
+}
+
+#pulseaudio {
+  color: @white;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 0px;
+}
+
+#pulseaudio.muted {
+  color: #3b4252;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 0px;
+}
+
+#temperature,
+#custom-temp {
+  color: @teal;
+  border-radius: 10px 10px 0 0;
+}
+
+#temperature.critical,
+#custom-temp.critical {
+  color: @red;
+}
+
+#custom-fan {
+  color: @white;
+}
+
+#idle_inhibitor {
+  background-color: #ebcb8b;
+  color: @white;
+}
+
+#tray {
+  background-color: @base;
+  margin-bottom: 20px;
+}
+
+#tray menu {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+#custom-launcher,
+#custom-power {
+}
+
+#custom-launcher {
+  font-size: 20px;
+  background-color: shade(@base, 1.1);
+  color: @white;
+  border-radius: 0px 0px 15px 0px;
+  padding: 10px 5px 10px 10px;
+}
+
+#custom-power {
+  font-size: 20px;
+  color: @red;
+  background-color: shade(@base, 1.1);
+  border-radius: 0px 0px 0px 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+#window {
+  border-style: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #eceff4;
 }

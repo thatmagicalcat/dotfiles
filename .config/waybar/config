@@ -1,183 +1,246 @@
+// {
+//   "layer": "top",
+//   "position": "top",
+//   "height": -1,
+//   "margin": "10 10 0 10",
+//   // "margin": "0 0 0 0",
+//   "modules-left": [
+//     "river/tags",
+//   ],
+//   "modules-center": [
+//     "river/window"
+//   ],
+//   "modules-right": [
+//     "cpu",
+//     "custom/temp",
+//     "custom/fan",
+//     "memory",
+//     "battery",
+//     "clock",
+//     "tray"
+//   ],
+
+//   "tray": {
+//     "icon-size": 21,
+//     "spacing": 10
+//   },
+
+//   // Modules configuration
+//   "river/tags": {
+//     "num-tags": 9,
+//     "tag-labels": ["web", "sys", "dev", "msg", "msc", "res", "bkg", "doc", "misc"]
+//   },
+
+//   "river/window": {
+//     "format": "[ {} ]",
+//     "max-length": 80,
+//     "tooltip": false
+//   },
+
+//   "cpu": {
+//     "interval": 3,
+//     "format": " {usage}%",
+//     "max-length": 20,
+//     "on-click": "foot -e btop"
+//   },
+
+//   "temperature": {
+//     "thermal_zone": 5,
+//     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input",
+//     "interval": 2,
+//     "critical-threshold": 80,
+//     "max-length": 30,
+//     "format-critical": " {temperatureC}°C",
+//     "format": " {temperatureC: >2}°C",
+//        "tooltip": false
+//   },
+
+//   "custom/fan": {
+//     "exec": "cat /sys/class/hwmon/hwmon*/fan*_input 2>/dev/null || echo 'N/A'",
+//     "format": " {} RPM ",
+//     "max-length": 30,
+//     "interval": 5,
+//     "tooltip": false
+//   },
+
+//   "memory": {
+//     "interval": 5,
+//     "format": "  {used:0.1f}G/{total:0.1f}G",
+//     "max-length": 25,
+//     "on-click": "foot -e btop"
+//   },
+
+//   "clock": {
+//     "tooltip-format": "<tt><small>{calendar}</small></tt>",
+//     "calendar": {
+//       "mode": "month",
+//       "mode-mon-col": 3,
+//       "weeks-pos": "right",
+//       "on-scroll": 1,
+//       "on-click-right": "mode",
+//       "format": {
+//         "months": "<span color='//ffead3'><b>{}</b></span>",
+//         "days": "<span color='//ecc6d9'><b>{}</b></span>",
+//         "weeks": "<span color='//99ffdd'><b>W{}</b></span>",
+//         "weekdays": "<span color='//ffcc66'><b>{}</b></span>",
+//         "today": "<span color='//ff6699'><b><u>{}</u></b></span>"
+//       }
+//     },
+//     "actions": {
+//       "on-click-right": "mode",
+//       "on-click-forward": "tz_up",
+//       "on-click-backward": "tz_down",
+//       "on-scroll-up": "shift_up",
+//       "on-scroll-down": "shift_down"
+//     },
+//     "format": "{:%a %d %b | %I:%M:%S %p}",
+//     "format-alt": "{:%d/%m/%Y | %H:%M:%S}",
+//     "interval": 1
+//   },
+//   "custom/temp": {
+//     "exec": "/home/thatmagicalcat/.config/waybar/scripts/temp.sh",
+//     "interval": 5,
+//     // "return-type": "json",
+//     "format": " {} ",
+//     "tooltip": false,
+//     "on-click": "foot -e sensors"
+//   },
+//   "battery": {
+//     "bat": "BAT0",
+//     "interval": 60,
+//     "states": {
+//         "warning": 30,
+//         "critical": 15
+//     },
+//     "format": "{icon}  {capacity}%",
+//     "format-icons": ["", "", "", "", ""],
+//     "max-length": 25
+//   }
+// }
+
 {
-    // "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
-    "width": 1300, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": ["custom/icon1", "custom/icon2", "custom/icon3"],
-    "modules-center": [],
-    "modules-right": [ "hyprland/workspaces", "wlr/taskbar" ,"tray", "clock"],
-    // Modules configuration
-    "hyprland/workspaces": {
-       "active-only": true
-    },
+  "layer": "top",
+  "position": "left",
+  "width": -1,
+  "margin": "10 0 10 10",
+  "modules-left": [
+    "river/tags"
+  ],
+  "modules-center": [
+    "river/window"
+  ],
+  "modules-right": [
+    "cpu",
+    "custom/temp",
+    "custom/fan",
+    "memory",
+    "battery",
+    "clock",
+    "tray"
+  ],
 
-"custom/icon1": {
-    "format": "{}  ",
+  "tray": {
+    "rotate": 90,
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Modules configuration
+  "river/tags": {
+    "num-tags": 9,
+    "tag-labels": ["󰖟", "", "", "󰲂", "󰝚", "", "", "", ""]
+  },
+
+  "river/window": {
+    "rotate": 90,
+    "format": "[ {} ]",
+    "max-length": 30,
+    "tooltip": false
+  },
+
+  "cpu": {
+    "rotate": 90,
+    "interval": 3,
+    "format": " {usage}%",
+    "max-length": 15,
+    "on-click": "foot -e btop"
+  },
+
+  "temperature": {
+    "rotate": 90,
+    "thermal_zone": 5,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input",
+    "interval": 2,
+    "critical-threshold": 80,
+    "max-length": 15,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC: >2}°C",
+    "tooltip": false
+  },
+
+  "custom/fan": {
+    "rotate": 90,
+    "exec": "cat /sys/class/hwmon/hwmon*/fan*_input 2>/dev/null || echo 'N/A'",
+    "format": " {} RPM ",
+    "max-length": 15,
+    "interval": 5,
+    "tooltip": false
+  },
+
+  "memory": {
+    "rotate": 90,
+    "interval": 5,
+    "format": "  {used:0.1f}G/{total:0.1f}G",
+    "max-length": 15,
+    "on-click": "foot -e btop"
+  },
+
+  "clock": {
+    "rotate": 90,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%a, %d %b %Y}",
+    "interval": 1
+  },
+  "custom/temp": {
+    "rotate": 90,
+    "exec": "/home/thatmagicalcat/.config/waybar/scripts/temp.sh",
+    "interval": 5,
+    "format": " {} ",
     "tooltip": false,
-    "on-click": "google-chrome-stable",
-    "on-click-right": "google-chrome-stable"
-},
-
-"custom/icon2": {
-    "format": "{}  ",
-    "tooltip": false,
-    "on-click": "foot",
-    "on-click-right": "foot"
-},
-"custom/icon3": {
-    "format": "{}  ",
-    "tooltip": false,
-    "on-click": "emacs",
-    "on-click-right": "emacs"
-},
-
-"wlr/taskbar": {
-    "icon-size": 26,
-    "on-click": "activate",
-    "on-click-right": "minimize",
-    "format": ""
+    "on-click": "foot -e sensors"
+  },
+  "battery": {
+    "rotate": 90,
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
     },
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y%B}</big>\n<tt><small>{calendar}</small></tt>",
-	"format": "{:%H:%M }",
-        "format-alt": "{:%m%N%d}"
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 15
+  }
 }
-

@@ -12,10 +12,13 @@ pub fn brtns() -> Option<String> {
 pub fn volume() -> Option<String> {
     Some(format!(
         "volume: {}",
-        run! { pactl get-sink-volume @DEFAULT_SINK@ }
+        run! { amixer get PCM }
             .ok()?
-            .split(' ')
+            .lines()
             .nth(5)?
+            .split(' ')
+            .nth(6)?
+            .trim_matches(['[', ']'])
     ))
 }
 
@@ -55,12 +58,22 @@ pub fn battery() -> Option<String> {
 }
 
 pub fn storage() -> Option<String> {
-    let x = run! { df -h --output=used,size,pcent / }.ok()?;
-    let mut split = x.lines().nth(1)?.split(" ").filter(|i| !i.is_empty());
+    let drives = ["/", "/home"];
 
-    let [used, total, used_percent] = from_fn(|_| split.next().unwrap());
+    Some(
+        drives
+            .iter()
+            .filter_map(|path| {
+                let x = run! { df -h --output=used,size,pcent $path }.ok()?;
+                let mut split = x.lines().nth(1)?.split(" ").filter(|i| !i.is_empty());
 
-    Some(format!("󰋊 {used} / {total} {used_percent}"))
+                let [used, total] = from_fn(|_| split.next().unwrap());
+                let [used, total] = [&used[..used.len() - 1], &total[..total.len() - 1]];
+
+                Some(format!("{path}: {used}/{total} GB "))
+            })
+            .collect(),
+    )
 }
 
 pub fn date() -> Option<String> {
@@ -69,7 +82,7 @@ pub fn date() -> Option<String> {
 
 pub fn cpu() -> Option<String> {
     Some(format!(
-        "  {}% 󰏈 {}C 󰈐 {} RPM",
+        "  {}% 󰏈 {}C 󰈐 {} RPM",
         cpu_percentage()?,
         cpu_temp()?,
         cpu_fan_speed()?

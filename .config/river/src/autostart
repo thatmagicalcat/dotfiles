@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# $HOME/.azotebg &
+swww-daemon &
+waybar &
+alacritty --daemon

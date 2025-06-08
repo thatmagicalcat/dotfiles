@@ -8,22 +8,22 @@ style = "Block"
 TERM = "alacritty"
 
 [font]
-size = 12
+size = 14
 
 [font.bold]
-family = "Jetbrains Mono"
+family = "JetbrainsMono Nerd Font"
 style = "ExtraBold"
 
 [font.bold_italic]
-family = "JetBrainsMono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono"
+family = "JetBrainsMono Nerd Font"
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -80,7 +80,7 @@ program = "/usr/bin/fish"
 # decorations = "full"
 decorations_theme_variant = "Dark"
 dynamic_padding = true
-opacity = 0.7
+opacity = 0.8
 title = "Alacritty"
 
 [window.dimensions]
@@ -92,13 +92,18 @@ lines = 30
 # instance = "Alacritty"
 
 [colors.primary]
-background = '#0a0c10'
-foreground = '#f0f3f6'
+background = "#0c131b"
+foreground = "#f5ebe4"
+
+# [colors.primary]
+# background = '#0a0c10'
+# foreground = '#f0f3f6'
 
 # Cursor colors
 [colors.cursor]
+cursor = "#f5ebe4"
 text = '#0a0c10'
-cursor = '#f0f3f6'
+# cursor = '#f0f3f6'
 
 # Normal colors
 [colors.normal]

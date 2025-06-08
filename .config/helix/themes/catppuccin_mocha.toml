@@ -13,7 +13,7 @@
 "string.regexp" = "peach"
 "string.special" = "blue"
 
-"comment" = { fg = "overlay1", modifiers = ["italic"] }
+"comment" = { fg = "overlay1", modifiers = [] }
 
 "variable" = "text"
 "variable.parameter" = { fg = "maroon", modifiers = ["italic"] }
@@ -36,7 +36,7 @@
 "tag" = "mauve"
 "attribute" = "blue"
 
-"namespace" = { fg = "blue", modifiers = ["italic"] }
+"namespace" = { fg = "blue", modifiers = [] }
 
 "special" = "blue" # fuzzy highlight
 

@@ -37,7 +37,7 @@
 "info" = { fg = "aqua1", modifiers = ["bold"] }
 "hint" = { fg = "blue0", modifiers = ["bold"] }
 
-"ui.background" = { bg = "bg0" }
+# "ui.background" = { bg = "bg0" }
 "ui.linenr" = { fg = "bg4" }
 "ui.linenr.selected" = { fg = "yellow0" }
 "ui.cursorline" = { bg = "bg1" }
@@ -67,7 +67,7 @@
 "ui.virtual.whitespace" = "bg8"
 "ui.virtual.indent-guide" = "bg8"
 "ui.virtual.ruler" = { bg = "bg1" }
-"ui.virtual.inlay-hint" = { fg = "bg7" }
+"ui.virtual.inlay-hint" = { fg = "fg3" }
 "ui.virtual.wrap" = { fg = "bg2" }
 "ui.virtual.jump-label" = { fg = "red3", modifiers = ["bold"] }
 
@@ -91,7 +91,8 @@ fg0 =      "#e4e4ef"
 fg1 =      "#f4f4ff"
 fg2 =      "#f5f5f5"
 fg3 =      "#a89984" 
-bg0 =      "#0c0c0c"
+bg9 =      "#0f0f0f"
+bg0 =      "#0a0a0a"
 bg1 =      "#282828"
 bg2 =      "#453d41"
 bg4 =      "#52494e"

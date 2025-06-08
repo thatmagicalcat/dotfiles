@@ -2,15 +2,14 @@ theme = "gruber-darker"
 # theme = "catppuccin_mocha"
 
 [editor]
-auto-completion = false
 line-number = "relative"
-mouse = true
+mouse = false
 idle-timeout = 100
 bufferline = "multiple"
 popup-border = "all"
 cursorline = false
 cursorcolumn = false
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "hint" # sexy error messages
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
