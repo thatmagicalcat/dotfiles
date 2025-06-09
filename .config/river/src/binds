@@ -95,3 +95,6 @@ map $mod S spawn "sh $cfg/scripts/screenshot"
 
 # wallpaper
 map $mod+Shift W spawn "sh $cfg/scripts/wallpaper"
+
+# hide waybar
+map $mod B spawn "pkill -USR1 waybar"
