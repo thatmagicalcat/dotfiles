@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Scroll by swiping along the edge
+riverctl input "$trackpad" scroll-method edge
+
+# 1 finger tap equals left click
+# 2 finger tap equals right click
+# 3 finger tap equals middle click.
+riverctl input "$trackpad" tap-button-map left-right-middle
+
+riverctl input "$trackpad" tap enabled

@@ -83,7 +83,6 @@ do
   map $mod+Shift+Control $i toggle-view-tags $tags
 done
 
-
 riverctl declare-mode passthrough
 
 # $mod+F11 to enter passthrough mode
