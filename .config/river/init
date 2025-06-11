@@ -4,10 +4,11 @@ cfg=$HOME/.config/river
 src=$cfg/src
 
 . $src/vars
-. $src/binds
-. $src/tiling
-. $src/rules
 . $src/general
+. $src/binds
+. $src/layout
+. $src/rules
+. $src/input
 
 if [ ! -e "$LOCKFILE" ]; then
     . $src/autostart &
