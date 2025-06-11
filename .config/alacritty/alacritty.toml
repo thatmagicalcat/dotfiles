@@ -95,15 +95,9 @@ lines = 30
 background = "#0c131b"
 foreground = "#f5ebe4"
 
-# [colors.primary]
-# background = '#0a0c10'
-# foreground = '#f0f3f6'
-
-# Cursor colors
 [colors.cursor]
 cursor = "#f5ebe4"
 text = '#0a0c10'
-# cursor = '#f0f3f6'
 
 # Normal colors
 [colors.normal]

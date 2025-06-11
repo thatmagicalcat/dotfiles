@@ -9,7 +9,9 @@ map_ptr() {
 }
 
 map $mod Return spawn "$terminal"
-map $mod Space spawn "$run"
+
+# dmenu
+map $mod Space spawn "cd $HOME && $run"
 
 # close the current window
 map $mod+Shift C close
@@ -98,3 +100,6 @@ map $mod+Shift W spawn "sh $cfg/scripts/wallpaper"
 
 # hide waybar
 map $mod B spawn "pkill -USR1 waybar"
+
+# reload config
+map $mod R spawn "$cfg/init"

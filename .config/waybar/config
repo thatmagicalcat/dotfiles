@@ -26,6 +26,7 @@
 
   // Modules configuration
   "river/tags": {
+    "rotate": 90,
     "num-tags": 9,
     "tag-labels": ["󰖟", "", "", "󰲂", "󰝚", "", "", "", ""]
   },
@@ -33,8 +34,8 @@
   "river/window": {
     "rotate": 90,
     "format": "[ {} ]",
-    "max-length": 30,
-    "tooltip": false
+    "max-length": 20,
+    "tooltip": true
   },
 
   "cpu": {
@@ -121,5 +122,5 @@
     "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "max-length": 15
-  }
+  },
 }

@@ -7,4 +7,4 @@ run=$cfg/scripts/dmenu_run
 
 # for autostart
 LOCKFILE=/tmp/river-autostart.lock
-terminal="alacritty msg create-window || st"
+terminal="cd $HOME && st"
