@@ -67,7 +67,6 @@ window#waybar {
 #network,
 #pulseaudio,
 #mode,
-#tray,
 #mpd,
 #custom-temp,
 #custom-fan {
@@ -202,13 +201,35 @@ window#waybar {
 }
 
 #tray {
-  background-color: @base;
-  margin-bottom: 20px;
+    padding: 0px 6px;
+    padding-bottom: 20px;
+    background-color: @base; /* Dark background */
+    border-radius: 6px;
+    margin: 0 4px;
+}
+
+#tray * {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    color: #cdd6f4;
 }
 
 #tray menu {
-  margin-bottom: 20px;
-  padding: 20px;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #585b70;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+#tray menu item {
+    padding: 4px 12px;
+    border-radius: 3px;
+}
+
+#tray menu item:hover {
+    background-color: #313244;
 }
 
 #custom-launcher,
