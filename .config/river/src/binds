@@ -102,3 +102,16 @@ map $mod B spawn "pkill -USR1 waybar"
 
 # reload config
 map $mod R spawn "$cfg/init"
+
+# volume controls
+map None XF86AudioRaiseVolume spawn "$cfg/scripts/volup.sh"
+map None XF86AudioLowerVolume spawn "$cfg/scripts/voldown.sh"
+map None XF86AudioMute spawn "$cfg/scripts/volmute.sh"
+
+# brightness controls
+map None XF86MonBrightnessUp spawn "$cfg/scripts/brtnsup.sh"
+map None XF86MonBrightnessDown spawn "$cfg/scripts/brtnsdown.sh"
+
+# notification controls
+map $mod+Shift D spawn 'makoctl dismiss'
+map $mod+Shift R spawn 'makoctl restore'

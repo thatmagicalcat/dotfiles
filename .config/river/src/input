@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Scroll by swiping along the edge
-riverctl input "$trackpad" scroll-method edge
+riverctl input "$trackpad" scroll-method two-finger
 
 # 1 finger tap equals left click
 # 2 finger tap equals right click

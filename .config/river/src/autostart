@@ -3,5 +3,8 @@
 # $HOME/.azotebg &
 mako &
 swww-daemon &
-waybar
+copyq --start-server &
+waybar &
+kdeconnectd &
+kdeconnect-indicator 
 # alacritty --daemon
