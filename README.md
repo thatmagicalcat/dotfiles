@@ -2,7 +2,6 @@
 
 # Current River config
 ![river](Screenshots/river.png)
-![river](Screenshots/river2.png)
 
 1. Terminal - st
 2. Text Editor - Helix
