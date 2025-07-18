@@ -1,0 +1,73 @@
+theme = "gruber-darker"
+# theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = false
+idle-timeout = 100
+bufferline = "multiple"
+popup-border = "all"
+cursorline = false
+cursorcolumn = false
+end-of-line-diagnostics = "hint" # sexy error messages
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "|"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+tab = "→"
+# tabpad = "·"
+
+[editor.indent-guides]
+render = true
+character = '|'
+# character = "▏"
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[keys.normal]
+H = ":bp"
+L = ":bn"
+C-f = ":format"
+C-l = ":sh leptosfmt ."
+C-x = ":buffer-close"
+C-r = ":reload"
+esc = ":w"
+"backspace" = { r = ":sh cargo run -q 2> /dev/null", c = ":config-reload" }

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# $HOME/.azotebg &
+mako &
+swww-daemon &
+copyq --start-server &
+waybar &
+kdeconnectd &
+kdeconnect-indicator 
+# alacritty --daemon

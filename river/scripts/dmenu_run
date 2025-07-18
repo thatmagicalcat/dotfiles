@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exec $(dmenu_path | dmenu -p "run:" -c -fn "monospace:size=24" -l 10 -o 1 -nb "#222222" -sb "#e46f22" -shf "#ffffff" -shb "#e46f22" "$@")
+
+# exec $(dmenu_path | dmenu -X 11 -Y 10 -W 1898 -h 30 "$@")
+
+# Uncomment for the NAVHISTORY patch (and remove the exec above)
+#dmenu_path | dmenu -H "${XDG_CACHE_HOME:-$HOME/.cache/}/dmenu_run.hist" "$@" | ${SHELL:-"/bin/sh"} &

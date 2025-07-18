@@ -1,0 +1,119 @@
+#!/bin/sh
+
+map() {
+  riverctl map normal "$@"
+}
+
+map_ptr() {
+  riverctl map-pointer normal "$@"
+}
+
+map $mod Return spawn "$terminal"
+map $mod+$mod2 Return spawn "$alt_terminal"
+
+# app launcher
+map $mod Space spawn "cd $HOME && $run"
+map $mod+$mod2 E spawn "$emoji"
+
+# close the current window
+map $mod+Shift C close
+
+# mod+shift+e to exit river
+map $mod+Shift E exit
+
+# $mod+J and $mod+K to focus the next/previous view in the layout stack
+map $mod J focus-view next
+map $mod K focus-view previous
+
+# $mod+Shift+J and $mod+Shift+K to swap the focused view with the next/previous
+# view in the layout stack
+map $mod+Shift J swap next
+map $mod+Shift K swap previous
+
+# $mod+$mod2+{H,J,K,L} to move views
+map $mod+$mod2 H move left $factor
+map $mod+$mod2 J move down $factor
+map $mod+$mod2 K move up $factor
+map $mod+$mod2 L move right $factor
+
+# $mod+$mod2+Control+{H,J,K,L} to snap views to screen edges
+map $mod+$mod2+Control H snap left
+map $mod+$mod2+Control J snap down
+map $mod+$mod2+Control K snap up
+map $mod+$mod2+Control L snap right
+
+# $mod+$mod2+Shift+{H,J,K,L} to resize views
+map $mod+$mod2+Shift H resize horizontal -$factor
+map $mod+$mod2+Shift J resize vertical $factor
+map $mod+$mod2+Shift K resize vertical -$factor
+map $mod+$mod2+Shift L resize horizontal $factor
+
+# $mod+0 to focus all tags
+# $mod+Shift+0 to tag focused view with all tags
+map $mod 0 set-focused-tags $all_tags
+map $mod+Shift 0 set-view-tags $all_tags
+
+# $mod + Left Mouse Button to move views
+map_ptr $mod BTN_LEFT move-view
+
+# $mod + Right Mouse Button to resize views
+map_ptr $mod BTN_RIGHT resize-view
+
+# $mod + Middle Mouse Button to toggle float
+map_ptr $mod BTN_MIDDLE toggle-float
+
+# $mod+Space to toggle float
+map $mod+Shift Space toggle-float
+
+# $mod+F to toggle fullscreen
+map $mod F toggle-fullscreen
+
+for i in $(seq 1 9)
+do
+  tags=$((1 << ($i - 1)))
+
+  # $mod+[1-9] to focus tag [0-8]
+  map $mod $i set-focused-tags $tags
+
+  # $mod+Shift+[1-9] to tag focused view with tag [0-8]
+  map $mod+Shift $i set-view-tags $tags
+
+  # $mod+Control+[1-9] to toggle focus of tag [0-8]
+  map $mod+Control $i toggle-focused-tags $tags
+
+  # $mod+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+  map $mod+Shift+Control $i toggle-view-tags $tags
+done
+
+riverctl declare-mode passthrough
+
+# $mod+F11 to enter passthrough mode
+riverctl map normal $mod F11 enter-mode passthrough
+
+# $mod+F11 to return to normal mode
+riverctl map passthrough $mod F11 enter-mode normal
+
+# screenshot
+map $mod S spawn "sh $cfg/scripts/screenshot"
+
+# wallpaper
+map $mod+Shift W spawn "sh $cfg/scripts/wallpaper"
+
+# hide waybar
+map $mod B spawn "pkill -USR1 waybar"
+
+# reload config
+map $mod R spawn "$cfg/init"
+
+# volume controls
+map None XF86AudioRaiseVolume spawn "$cfg/scripts/volup.sh"
+map None XF86AudioLowerVolume spawn "$cfg/scripts/voldown.sh"
+map None XF86AudioMute spawn "$cfg/scripts/volmute.sh"
+
+# brightness controls
+map None XF86MonBrightnessUp spawn "$cfg/scripts/brtnsup.sh"
+map None XF86MonBrightnessDown spawn "$cfg/scripts/brtnsdown.sh"
+
+# notification controls
+map $mod+Shift D spawn 'makoctl dismiss'
+map $mod+Shift R spawn 'makoctl restore'

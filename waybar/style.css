@@ -1,0 +1,260 @@
+@import "color.css";
+
+* {
+  color: @white;
+  border: 0;
+  padding: 0 0;
+  margin: -4;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 14px;
+}
+
+window#waybar {
+  border-right: 0px solid shade(@base, 1.1);
+  background-color: shade(@base, 1);
+}
+
+#tags {
+  padding-right: 3px;
+  padding-top: 20px;
+  background-color: @base;
+  font-weight: bold;
+  opacity: 1;
+}
+
+#tags button {
+  color: @base;
+  border-radius: 8px;
+  /* min-height: 35px; */
+  /* min-width: 35px; */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 2px 0;
+}
+
+#tags button.urgent * {
+  color: @base;
+}
+
+#tags button.urgent {
+  color: @base;
+  box-shadow: none;
+  text-shadow: none;
+  border: 0px;
+  border-radius: 10px;
+  background: none;
+}
+
+#tags button.occupied {
+  /* opacity: 0.7; */
+  /* font-weight: bold; */
+}
+
+#tags button.focused * {
+  color: @red;
+}
+
+#clock,
+#custom-swap,
+#custom-clipboard,
+#custom-background,
+#battery,
+#cpu,
+#memory,
+#idle_inhibitor,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#mpd,
+#custom-temp,
+#custom-fan {
+  padding-bottom: 6px;
+  padding: 0px 5px;
+  border-style: solid;
+  background-color: shade(@base, 1.1);
+  opacity: 1;
+  margin: 0 8px;
+  border-radius: 10px;
+}
+
+/* Module styles */
+#mode {
+  color: @mauve;
+  margin-bottom: 5px;
+}
+
+#mpd {
+  color: @base;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#custom-swap {
+  color: @base;
+  margin-top: 10px;
+  background-color: @base;
+}
+
+#custom-background {
+  border-radius: 10px 10px 0px 0px;
+  background-color: @base;
+  color: white;
+  padding: 14px 5px 5px 5px;
+}
+
+#clock {
+  color: @white;
+  padding-bottom: 10px;
+  margin: 10px 8px;
+}
+
+#backlight {
+  color: @yellow;
+  border-radius: 10px 10px 0 0;
+}
+
+#battery {
+  color: @white;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 10px;
+}
+
+#battery.charging {
+  color: @white;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #bf616a;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  color: @white;
+}
+
+#cpu #cpu-icon {
+  color: @white;
+}
+
+#memory {
+  color: @white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+}
+
+#network.disabled {
+  color: #bf616a;
+}
+
+#network {
+  color: @white;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+#network.disconnected {
+  color: #bf616a;
+}
+
+#pulseaudio {
+  color: @white;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 0px;
+}
+
+#pulseaudio.muted {
+  color: #3b4252;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 0px;
+}
+
+#temperature,
+#custom-temp {
+  color: @teal;
+  border-radius: 10px 10px 0 0;
+}
+
+#temperature.critical,
+#custom-temp.critical {
+  color: @red;
+}
+
+#custom-fan {
+  color: @white;
+}
+
+#idle_inhibitor {
+  background-color: #ebcb8b;
+  color: @white;
+}
+
+#tray {
+    padding: 0px 6px;
+    padding-bottom: 20px;
+    background-color: @base; /* Dark background */
+    border-radius: 6px;
+    margin: 0 4px;
+}
+
+#tray * {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    color: #cdd6f4;
+}
+
+#tray menu {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #585b70;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+#tray menu item {
+    padding: 4px 12px;
+    border-radius: 3px;
+}
+
+#tray menu item:hover {
+    background-color: #313244;
+}
+
+#custom-launcher,
+#custom-power {
+}
+
+#custom-launcher {
+  font-size: 20px;
+  background-color: shade(@base, 1.1);
+  color: @white;
+  border-radius: 0px 0px 15px 0px;
+  padding: 10px 5px 10px 10px;
+}
+
+#custom-power {
+  font-size: 20px;
+  color: @red;
+  background-color: shade(@base, 1.1);
+  border-radius: 0px 0px 0px 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+#window {
+  border-style: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #eceff4;
+}

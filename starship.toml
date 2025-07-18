@@ -1,0 +1,74 @@
+# format = '''
+#  \[ [$directory](bold rose)\] $cmd_duration-> '''
+
+
+format = '''
+ :: '''
+
+add_newline = true
+palette = 'rose_pine_moon'
+
+[character]
+success_symbol = "[λ[ ](bold purple)"
+error_symbol = "[λ[ ](bold red)"
+
+[username]
+style_user = 'bold blue'
+style_root = 'red bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$hostname](bold blue)'
+
+[directory]
+style = 'bold teal'
+
+[cmd_duration]
+disabled = false
+# format = "[thread](bold yellow)::[sleep](bold)\\([$duration]($style)\\) "
+# format = "{\n  [std](bold yellow)::[thread](bold yellow)::[sleep](bold)\\([$duration]($style)\\);\n} "
+
+[palettes.rose_pine_moon]
+base = "#232136"
+surface = "#2a273f"
+overlay = "#393552"
+muted = "#6e6a86"
+subtle = "#908caa"
+text = "#e0def4"
+love = "#eb6f92"
+gold = "#f6c177"
+rose = "#ea9a97"
+pine = "#3e8fb0"
+foam = "#9ccfd8"
+iris = "#c4a7e7"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

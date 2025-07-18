@@ -1,0 +1,131 @@
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+[language-server.rubylsp]
+command = "ruby-lsp"
+
+[language-server.wat]
+command = "wat_server"
+
+[language-server.pylsp]
+command = "pylsp"
+
+[language-server.discordrpc]
+command = "discord-presence-lsp"
+
+[language-server.glsl_analyzer]
+command = "glsl_analyzer"
+args = ["--stdio"]
+
+[language-server.gpt]
+command = "helix-gpt"
+args = ["--handler", "copilot"]
+
+[[language]]
+name = "ruby"
+language-servers = [
+  "rubylsp"
+]
+
+
+[[language]]
+name = "wat"
+auto-format = false
+language-servers = [
+  "wat"
+]
+
+[[language]]
+name = "python"
+auto-format = false
+language-servers = [
+  "pylsp"
+]
+
+[[language]]
+name = "rust"
+auto-format = false
+language-servers = [
+  "rust-analyzer",
+]
+
+[[language]]
+name = "glsl"
+auto-format = false
+file-types = ["glsl", "shader", "vert", "frag", "vs", "fs"]
+language-servers = [
+  "glsl_analyzer"
+]
+
+[language.debugger]
+command = "lldb-vscode"
+name = "lldb"
+port-arg = "--port {}"
+transport = "tcp"
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+
+[[language.debugger.templates.completion]]
+completion = "filename"
+name = "binary"
+
+[language.debugger.templates.args]
+program = "{0}"
+runInTerminal = false
+
+# [language-server.rust-analyzer]
+# config = {
+#   procMacro = {
+#     ignored = {
+#       leptos_macro = [
+#         "component",
+#         "server"
+#       ]
+#     }
+#   }
+# }
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+# '<' = '>'
+
+# [[language]]
+# name = "typescript"
+# language-id = "typescript"
+# scope = "source.ts"
+# injection-regex = "^(ts|typescript)$"
+# file-types = ["ts"]
+# shebangs = ["deno"]
+# roots = ["deno.json", "deno.jsonc", "package.json"]
+# auto-format = true
+# language-servers = ["deno-lsp"]
+
+# [language-server.deno-lsp]
+# command = "deno"
+# args = ["lsp"]
+
+# [language-server.deno-lsp.config.deno]
+# enable = true
+
+[[language]]
+name = "dart"
+
+[language.debugger]
+name = "dart"
+transport = "stdio"
+command = "flutter"
+args = [ "debug-adapter" ]
+
+[[language.debugger.templates]]
+name = "launch"
+request = "launch"
+completion = [ { name = "entrypoint", completion = "filename", default = "lib/main.dart" } ]
+args = { program = "{0}" }
+
+

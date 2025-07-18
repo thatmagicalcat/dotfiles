@@ -1,0 +1,15 @@
+#!/bin/sh
+
+wallpaper_dir=/home/thatmagicalcat/Wallpaper/
+selected="$(/usr/bin/ls $wallpaper_dir | dmenu -l 10 -X 400 -Y 400 -W 1100 -fn "JetBrainsMono:size=16" -g 2)"
+wallpaper="$wallpaper_dir$selected"
+
+swww img "$wallpaper" -t random
+wal -i "$wallpaper"
+
+# swww img $wallpaper --transition-type outer --transition-pos 0.854,0.972 --transition-step 90
+# echo $wallpaper > '/home/wizard/.cache/wallpaper.txt'
+# swaybg -i $wallpaper &
+
+# killall waybar
+# waybar -c ~/.config/waybar/hyprland.jsonc &

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+mod=Super
+mod2=Alt
+factor=50
+all_tags=$(((1 << 32) - 1))
+run="rofi -show run"
+emoji="rofi -show emoji"
+
+# for autostart
+LOCKFILE=/tmp/river-autostart.lock
+terminal="cd $HOME && st"
+alt_terminal="cd $HOME && kitty"
+
+trackpad="pointer-1267-12423-ELAN1300:00_04F3:3087_Touchpad"
+mouse="pointer-9639-64035-Compx_2.4G_Receiver_Mouse"
