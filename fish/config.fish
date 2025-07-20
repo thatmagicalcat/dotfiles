@@ -110,7 +110,7 @@ end
 ## run a fetch program if session is interactive
 if status --is-interactive && type -q tinyfetch
     # pywal colors
-    cat ~/.cache/wal/sequences &
+    cat ~/.cache/wal/sequences
     echo
     tinyfetch
     greeter
@@ -165,7 +165,7 @@ alias btctl="bluetoothctl"
 # empty rust project for random stuff
 alias t="z /tmp && rm -rf t && cargo new t && z t"
 
-alias gcc="/usr/bin/gcc -Wall -Wextra"
+# alias gcc="/usr/bin/gcc -Wall -Wextra"
 alias g++="/usr/bin/g++ -Wall -Wextra"
 
 alias xi="sudo xbps-install"
@@ -225,3 +225,4 @@ set -gx PATH $HOME/.cabal/bin $PATH /home/thatmagicalcat/.ghcup/bin # ghcup-env
 alias nv="neovide &"
 
 zoxide init fish | source
+. /home/thatmagicalcat/export-esp.sh

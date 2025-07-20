@@ -9,7 +9,7 @@ emoji="rofi -show emoji"
 
 # for autostart
 LOCKFILE=/tmp/river-autostart.lock
-terminal="cd $HOME && st"
+terminal="alacritty msg create-window"
 alt_terminal="cd $HOME && kitty"
 
 trackpad="pointer-1267-12423-ELAN1300:00_04F3:3087_Touchpad"

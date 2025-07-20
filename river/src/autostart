@@ -6,5 +6,5 @@ swww-daemon &
 copyq --start-server &
 waybar &
 kdeconnectd &
-kdeconnect-indicator 
-# alacritty --daemon
+kdeconnect-indicator &
+alacritty --daemon
