@@ -43,3 +43,18 @@ lspconfig.lua_ls.setup({
         },
     },
 })
+
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust-analyzer"] = {
+            check = {
+                command = "clippy";
+                overrideCommand = { "cargo", "check", "--message-format=json" };
+            }
+        },
+    },
+})
+
+lspconfig.clangd.setup({
+  cmd = { "clangd", "--fallback-style=Mozilla" },
+})
