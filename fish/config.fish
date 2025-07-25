@@ -226,3 +226,5 @@ alias nv="neovide &"
 
 zoxide init fish | source
 . /home/thatmagicalcat/export-esp.sh
+
+alias fuckoff="poweroff"
