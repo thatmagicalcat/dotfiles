@@ -96,8 +96,8 @@ riverctl map passthrough $mod F11 enter-mode normal
 # screenshot
 map $mod S spawn "sh $cfg/scripts/screenshot"
 
-# wallpaper
-map $mod+Shift W spawn "sh $cfg/scripts/wallpaper"
+# wallpaper selector
+map $mod+Shift W spawn "bash $cfg/scripts/wallpaper_selector.sh"
 
 # hide waybar
 map $mod B spawn "pkill -USR1 waybar"
