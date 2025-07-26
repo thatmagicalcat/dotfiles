@@ -55,5 +55,5 @@ lspconfig.rust_analyzer.setup({
 })
 
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--fallback-style=Mozilla" },
+  cmd = { "clangd", "--fallback-style=LLVM" },
 })
