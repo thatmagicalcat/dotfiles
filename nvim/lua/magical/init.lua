@@ -1,5 +1,5 @@
-require("magical.remap")
+require("magical.keymap")
 require("magical.commands")
 require("magical.lazy")
 require("magical.colorscheme")
-require("magical.keymap")
+require("magical.neovide")

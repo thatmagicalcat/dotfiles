@@ -9,6 +9,7 @@ local highlight = {
     "RainbowViolet",
     "RainbowCyan",
 }
+
 local hooks = require "ibl.hooks"
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })

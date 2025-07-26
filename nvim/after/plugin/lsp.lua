@@ -49,7 +49,6 @@ lspconfig.rust_analyzer.setup({
         ["rust-analyzer"] = {
             check = {
                 command = "clippy";
-                overrideCommand = { "cargo", "check", "--message-format=json" };
             }
         },
     },
