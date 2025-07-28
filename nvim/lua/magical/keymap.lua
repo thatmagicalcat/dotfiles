@@ -11,6 +11,11 @@ vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
 
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
+vim.keymap.set("n", "<C-x>", ":tabclose<CR>")
+vim.keymap.set("n", "H", ":tabprevious<CR>")
+vim.keymap.set("n", "L", ":tabnext<CR>")
+
 -- For moving around wrapped lines
 -- vim.keymap.set("n", "j", "gj")
 -- vim.keymap.set("n", "k", "gk")
