@@ -4,6 +4,9 @@ export XBPS_DISTDIR="~/void-packages"
 export STARSHIP_CONFIG="/home/thatmagicalcat/.config/starship.toml"
 export QT_QPA_PLATFORM="wayland"
 
+# weird bindgen pointer size mismatch pls go away
+export BINDGEN_EXTRA_CLANG_ARGS="--target=x86_64-unknown-linux-gnu"
+
 source $HOME/.config/fish/completions/*.fish
 
 export RUSTC_WRAPPER=sccache
@@ -227,4 +230,4 @@ alias nv="neovide &"
 zoxide init fish | source
 . /home/thatmagicalcat/export-esp.sh
 
-alias fuckoff="poweroff"
+alias fuckoff="sudo poweroff"
