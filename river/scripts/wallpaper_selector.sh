@@ -25,7 +25,7 @@ rofi_command="rofi -dmenu -config ${rofi_config_path} -theme-str ${rofi_override
 
 # Create cache dir if not exists
 if [ ! -d "${cache_dir}" ] ; then
-        mkdir -p "${cache_dir}"
+    mkdir -p "${cache_dir}"
 fi
 
 # Convert images in directory and save to cache dir
@@ -43,7 +43,7 @@ wall_selection=$(ls "${wall_dir}" -t | while read -r A ; do  echo -en "$A\x00ico
 
 [[ -n "$wall_selection" ]] || exit 1
 
-swww img ${wall_dir}${wall_selection}
+swww img ${wall_dir}${wall_selection} -t center
 wal -i ${wall_dir}${wall_selection}
 
 exit 0

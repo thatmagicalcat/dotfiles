@@ -117,3 +117,9 @@ map None XF86MonBrightnessDown spawn "$cfg/scripts/brtnsdown.sh"
 # notification controls
 map $mod+Shift D spawn 'makoctl dismiss'
 map $mod+Shift R spawn 'makoctl restore'
+
+# player controls
+map None XF86AudioPlay spawn "playerctl play-pause"
+map None XF86AudioNext spawn "playerctl next"
+map None XF86AudioPrev spawn "playerctl previous"
+map None XF86AudioStop spawn "playerctl stop"
