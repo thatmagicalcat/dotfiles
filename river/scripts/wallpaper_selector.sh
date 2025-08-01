@@ -46,4 +46,7 @@ wall_selection=$(ls "${wall_dir}" -t | while read -r A ; do  echo -en "$A\x00ico
 swww img ${wall_dir}${wall_selection} -t center
 wal -i ${wall_dir}${wall_selection}
 
+. "${HOME}/.config/river/init"
+. "${HOME}/Scripts/update_mako_colors.sh"
+
 exit 0
