@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action
 vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Definition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "References" })
-vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "References" })
+vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- im using conform now
 -- vim.keymap.set("n", "<C-f>", function()
