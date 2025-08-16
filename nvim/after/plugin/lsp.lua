@@ -1,16 +1,17 @@
 local lspconfig = require("lspconfig")
 
 -- Keybinds
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Info" })
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Info" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Definition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "References" })
 vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "References" })
 
-vim.keymap.set("n", "<C-f>", function()
-    vim.lsp.buf.format({ async = true })
-end, { desc = "Format file" })
+-- im using conform now
+-- vim.keymap.set("n", "<C-f>", function()
+--     vim.lsp.buf.format({ async = true })
+-- end, { desc = "Format file" })
 
 vim.diagnostic.config({
     virtual_text = {
@@ -56,4 +57,12 @@ lspconfig.rust_analyzer.setup({
 
 lspconfig.clangd.setup({
   cmd = { "clangd", "--fallback-style=LLVM" },
+})
+
+lspconfig.hls.setup({
+  settings = {
+    haskell = {
+      formattingProvider = 'ormolu',
+    },
+  },
 })
