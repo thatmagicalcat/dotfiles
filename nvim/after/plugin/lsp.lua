@@ -8,61 +8,102 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Definition" 
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "References" })
 vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "Rename" })
 
--- im using conform now
--- vim.keymap.set("n", "<C-f>", function()
---     vim.lsp.buf.format({ async = true })
--- end, { desc = "Format file" })
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+local on_attach = function(client, bufnr)
+	vim.lsp.inlay_hint.enable(true)
+end
 
 vim.diagnostic.config({
-    virtual_text = {
-        prefix = "»",
-        spacing = 2,
-    },
-    signs = true,
-    undejline = true,
-    update_in_insert = false,
-    severity_sort = true,
+	virtual_text = {
+		prefix = "»",
+		spacing = 4,
+		source = "if_many",
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		source = "if_many",
+		border = "rounded",
+	},
 })
 
 lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the LSP you're using LuaJIT (which Neovim uses)
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                -- Recognize `vim` as a global
-                globals = { "vim" },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
-            telemetry = { enable = false },
-        },
-    },
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				-- tell the LSP you're using LuaJIT (which Neovim uses)
+				version = "LuaJIT",
+			},
+			diagnostics = {
+				-- recognize `vim` as a global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+			telemetry = { enable = false },
+		},
+	},
 })
 
 lspconfig.rust_analyzer.setup({
-    settings = {
-        ["rust-analyzer"] = {
-            check = {
-                command = "clippy";
-            }
-        },
-    },
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		["rust-analyzer"] = {
+			check = {
+				command = "clippy",
+			},
+			inlayHints = {
+				bindingModeHints = {
+					enable = true,
+				},
+				chainingHints = {
+					enable = true,
+				},
+				closingBraceHints = {
+					enable = true,
+					minLines = 4,
+				},
+				closureCaptureHints = {
+					enable = true,
+				},
+				closureReturnTypeHints = {
+					enable = "always",
+				},
+				discriminantHints = {
+					enable = "always",
+				},
+				implicitDrops = {
+					enable = true,
+				},
+				implicitSizedBoundHints = {
+					enable = true,
+				},
+				lifetimeElisionHints = {
+					enable = true,
+				}
+			},
+		},
+	},
 })
 
 lspconfig.clangd.setup({
-  cmd = { "clangd", "--fallback-style=LLVM" },
+	capabilities = capabilities,
+	cmd = { "clangd", "--fallback-style=LLVM" },
 })
 
 lspconfig.hls.setup({
-  settings = {
-    haskell = {
-      formattingProvider = 'ormolu',
-    },
-  },
+	capabilities = capabilities,
+	settings = {
+		haskell = {
+			formattingProvider = 'ormolu',
+		},
+	},
 })

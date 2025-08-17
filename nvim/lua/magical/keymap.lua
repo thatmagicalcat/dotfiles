@@ -13,6 +13,7 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
 vim.keymap.set("n", "<C-x>", ":tabclose<CR>")
+vim.keymap.set("n", "<leader>x", ":bd<CR>") -- close the current buffer
 vim.keymap.set("n", "H", ":tabprevious<CR>")
 vim.keymap.set("n", "L", ":tabnext<CR>")
 
