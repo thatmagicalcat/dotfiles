@@ -107,3 +107,19 @@ lspconfig.hls.setup({
 		},
 	},
 })
+
+lspconfig.basedpyright.setup {}
+
+local servers = { "ts_ls", "html", "cssls", "jsonls", "tailwindcss" }
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+end
+
+lspconfig.emmet_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "html", "javascriptreact", "typescriptreact" },
+})
