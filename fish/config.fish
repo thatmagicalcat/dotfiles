@@ -3,9 +3,19 @@ export BROWSER="zen"
 export XBPS_DISTDIR="~/void-packages"
 export STARSHIP_CONFIG="/home/thatmagicalcat/.config/starship.toml"
 export QT_QPA_PLATFORM="wayland"
+export GEMINI_API_KEY="AIzaSyBfBkLzTelqgCZQK9f6NZXUxfpeIlqGuGc"
+export PGDATA="/home/thatmagicalcat/postgres"
 
 # weird bindgen pointer size mismatch pls go away
 export BINDGEN_EXTRA_CLANG_ARGS="--target=x86_64-unknown-linux-gnu"
+
+# Android stuff
+export ANDROID_HOME="$HOME/Android/sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/sdk"
+export PATH="$PATH":"$ANDROID_SDK_ROOT/cmdline-tools/latest"
+export PATH="$PATH":"$ANDROID_SDK_ROOT/cmdline-tools/latest/bin"
+export PATH="$PATH":"$ANDROID_SDK_ROOT/platform-tools"
+export PATH="$PATH":"$ANDROID_SDK_ROOT/emulator"
 
 source $HOME/.config/fish/completions/*.fish
 
@@ -17,7 +27,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.emacs.d/bin"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
-export RUSTFLAGS="-C linker=clang -C link-arg=-fuse-ld=lld"
+export RUSTFLAGS="-C linker=clang -C link-arg=-fuse-ld=/usr/bin/mold"
 
 set -p PATH ~/.cargo/bin
 set -p PATH /home/thatmagicalcat/.platformio/penv/bin
@@ -126,8 +136,6 @@ alias la='exa -a --color=always --group-directories-first --icons' # all files a
 alias ll='exa -l --color=always --group-directories-first --icons' # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'" # show only dotfiles
-
-
 # replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
 
@@ -165,8 +173,7 @@ alias cleanup_rust_projects="/usr/bin/ls | xargs --replace={} rm -rf ./{}/target
 alias py="python3"
 alias btctl="bluetoothctl"
 
-# empty rust project for random stuff
-alias t="z /tmp && rm -rf t && cargo new t && z t"
+alias bigpkgs="for pkg in (xbps-query -l | awk '{print $2}'); echo (xbps-query -p installed_size $pkg 2>/dev/null) $pkg; end | sort -h"
 
 # alias gcc="/usr/bin/gcc -Wall -Wextra"
 alias g++="/usr/bin/g++ -Wall -Wextra"
@@ -175,6 +182,8 @@ alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
 alias xq="xbps-query"
 alias xivp="sudo xbps-install --repository $HOME/void-packages/hostdir/binpkgs "
+
+alias tb="nc termbin.com 9999"
 
 function yplay
     set -l query (read -P "Search YouTube: ")
@@ -231,3 +240,14 @@ zoxide init fish | source
 . /home/thatmagicalcat/export-esp.sh
 
 alias fuckoff="sudo poweroff"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm
+set -gx PNPM_HOME "/home/thatmagicalcat/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

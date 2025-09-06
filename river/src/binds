@@ -95,6 +95,7 @@ riverctl map passthrough $mod F11 enter-mode normal
 
 # screenshot
 map $mod S spawn "sh $cfg/scripts/screenshot"
+map None Print spawn "sh -c 'grim - | wl-copy'"
 
 # wallpaper selector
 map $mod+Shift W spawn "bash $cfg/scripts/wallpaper_selector.sh"

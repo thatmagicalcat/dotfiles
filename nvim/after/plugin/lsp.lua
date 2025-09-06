@@ -69,10 +69,10 @@ lspconfig.rust_analyzer.setup({
 				},
 				closingBraceHints = {
 					enable = true,
-					minLines = 4,
+					minLines = 25,
 				},
 				closureCaptureHints = {
-					enable = true,
+					enable = false,
 				},
 				closureReturnTypeHints = {
 					enable = "always",
@@ -81,10 +81,10 @@ lspconfig.rust_analyzer.setup({
 					enable = "always",
 				},
 				implicitDrops = {
-					enable = true,
+					enable = false,
 				},
 				implicitSizedBoundHints = {
-					enable = true,
+					enable = false,
 				},
 				lifetimeElisionHints = {
 					enable = true,

@@ -1,7 +1,10 @@
 #!/bin/bash
-vol="$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F' ' '{ print $5 }')"
-if [ "$vol" != "0%" ]; then
-    pactl set-sink-volume 0 -5%
-    makoctl dismiss && notify-send --expire-time=500 --replace-id=1 "Volume: $(pactl get-sink-volume 0 | awk -F' ' '{ print $5 }')"
+
+current_volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2}' | sed 's/\[//;s/\]//')
+if [ "$current_volume" != "0.0" ] && [ -z "$muted" ]; then
+    wpctl set-volume @DEFAULT_SINK@ 5%-
+    new_volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2}' | sed 's/\[//;s/\]//')
+
+	notify_text="Volume: $(printf "%.0f\n" $(echo "$new_volume * 100" | bc))%"
+    makoctl dismiss && notify-send --expire-time=500 --replace-id=1 "$notify_text"
 fi
-kill -44 $(pidof dwmblocks)
