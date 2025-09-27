@@ -3,9 +3,13 @@
 SETUVAR --export COLORFILE:/home/wizard/\x2econfig/hypr/themes/yorha/colors_nier_light
 SETUVAR --export HYPRLAND_THEME:/home/wizard/\x2econfig/hypr/themes/yorha
 SETUVAR --export STARSHIP_CONFIG:/home/wizard/\x2econfig/hypr/themes/base/starship\x2etoml
-SETUVAR __done_min_cmd_duration:10000
+SETUVAR __done_min_cmd_duration:5000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3800
+SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1efranciscolourenco/done
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue

@@ -30,14 +30,13 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export RUSTFLAGS="-C linker=clang -C link-arg=-fuse-ld=/usr/bin/mold"
 
 set -p PATH ~/.cargo/bin
-set -p PATH /home/thatmagicalcat/.platformio/penv/bin
 
 # Hide welcome message
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # Set settings for https://github.com/franciscolourenco/done
-set -U __done_min_cmd_duration 10000
+set -U __done_min_cmd_duration 5000
 set -U __done_notification_urgency_level low
 
 # apply .profile: use this to put fish compatible .profile stuff in
@@ -53,7 +52,7 @@ if test -d ~/.local/bin
 end
 
 if status --is-interactive
-    source ("/usr/bin/starship" init fish --print-full-init | psub)
+    source ("/run/current-system/sw/bin/starship" init fish --print-full-init | psub)
 end
 
 ## Functions
@@ -108,7 +107,6 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
-# Copy DIR1 DIR2
 function copy
     set count (count $argv | tr -d \n)
     if test "$count" = 2; and test -d "$argv[1]"
@@ -120,70 +118,13 @@ function copy
     end
 end
 
-## run a fetch program if session is interactive
-if status --is-interactive && type -q tinyfetch
+if status --is-interactive # && type -q tinyfetch
     # pywal colors
     cat ~/.cache/wal/sequences
     echo
-    tinyfetch
+    # tinyfetch
     greeter
 end
-
-
-# Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons' # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons' # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'" # show only dotfiles
-# replace some more things with better alternatives
-alias cat='bat --style header --style snip --style changes --style header'
-
-# Common use
-alias ip="ip -color"
-alias so="source ~/.config/fish/config.fish"
-alias tarnow='tar -acf '
-alias untar='tar -xvf '
-alias wget='wget -c '
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='grep -E --color=auto'
-alias fish_config="nvim ~/.config/fish/config.fish"
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-
-alias g="git"
-alias gs="git status"
-alias gc="git commit -m"
-alias gp="git push"
-
-alias docker="sudo docker"
-
-alias c="cargo"
-alias rh="runhaskell"
-alias download_song="yt-dlp -x --audio-format mp3 --embed-thumbnail"
-alias ssh_phone="ssh -p 8022 u0_a272@192.168.0.101"
-alias cleanup_rust_projects="/usr/bin/ls | xargs --replace={} rm -rf ./{}/target"
-alias py="python3"
-alias btctl="bluetoothctl"
-
-alias bigpkgs="for pkg in (xbps-query -l | awk '{print $2}'); echo (xbps-query -p installed_size $pkg 2>/dev/null) $pkg; end | sort -h"
-
-# alias gcc="/usr/bin/gcc -Wall -Wextra"
-alias g++="/usr/bin/g++ -Wall -Wextra"
-
-alias xi="sudo xbps-install"
-alias xr="sudo xbps-remove"
-alias xq="xbps-query"
-alias xivp="sudo xbps-install --repository $HOME/void-packages/hostdir/binpkgs "
-
-alias tb="nc termbin.com 9999"
 
 function yplay
     set -l query (read -P "Search YouTube: ")
@@ -234,20 +175,15 @@ set -x MANPAGER bat
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 set -gx PATH $HOME/.cabal/bin $PATH /home/thatmagicalcat/.ghcup/bin # ghcup-env
 
-alias nv="neovide &"
-
 zoxide init fish | source
 . /home/thatmagicalcat/export-esp.sh
 
-alias fuckoff="sudo poweroff"
-
-# bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# pnpm
 set -gx PNPM_HOME "/home/thatmagicalcat/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end
+
+source $HOME/.config/fish/alias.fish
