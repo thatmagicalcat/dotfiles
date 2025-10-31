@@ -1,5 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
-pactl set-sink-mute @DEFAULT_SINK@ toggle
-notify-send --expire-time=500 --replace-id=1 $(pactl get-sink-mute @DEFAULT_SINK@)
-kill -44 $(pidof dwmblocks)
+wpctl set-mute @DEFAULT_SINK@ toggle
+notify-send --expire-time=500 --replace-id=1 $(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}' | sed 's/\[//;s/\]//')

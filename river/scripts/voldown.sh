@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 current_volume=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2}' | sed 's/\[//;s/\]//')
 if [ "$current_volume" != "0.0" ] && [ -z "$muted" ]; then

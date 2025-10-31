@@ -4,7 +4,7 @@ mod=Super
 mod2=Alt
 factor=50
 all_tags=$(((1 << 32) - 1))
-run="rofi -show run"
+run="fuzzel"
 emoji="rofi -show emoji"
 
 # for autostart

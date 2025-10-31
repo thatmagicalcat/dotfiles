@@ -98,7 +98,7 @@ map $mod S spawn "sh $cfg/scripts/screenshot"
 map None Print spawn "sh -c 'grim - | wl-copy'"
 
 # wallpaper selector
-map $mod+Shift W spawn "bash $cfg/scripts/wallpaper_selector.sh"
+map $mod+Shift W spawn "sh $cfg/scripts/wallpaper_selector.sh"
 
 # hide waybar
 map $mod B spawn "pkill -USR1 waybar"
@@ -124,3 +124,5 @@ map None XF86AudioPlay spawn "playerctl play-pause"
 map None XF86AudioNext spawn "playerctl next"
 map None XF86AudioPrev spawn "playerctl previous"
 map None XF86AudioStop spawn "playerctl stop"
+
+# map None XF86Launch1

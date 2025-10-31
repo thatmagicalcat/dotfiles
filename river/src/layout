@@ -1,25 +1,28 @@
 #!/bin/sh
 
+. "${HOME}/.cache/wal/colors.sh"
+
 riverctl default-layout wideriver
 
+pkill wideriver
 wideriver \
-    --layout                       left        \
-    --layout-alt                   monocle     \
-    --stack                        dwindle     \
-    --count-master                 1           \
-    --ratio-master                 0.50        \
-    --count-wide-left              0           \
-    --ratio-wide                   0.35        \
-    --no-smart-gaps                            \
-    --inner-gaps                   10          \
-    --outer-gaps                   10          \
-    --border-width                 2           \
-    --border-width-monocle         0           \
-    --border-width-smart-gaps      0           \
-    --border-color-focused         "0x93a1a1"  \
-    --border-color-focused-monocle "0x586e75"  \
-    --border-color-unfocused       "0x586e75"  \
-    --log-threshold                info        \
+    --layout                       left              \
+    --layout-alt                   monocle           \
+    --stack                        dwindle           \
+    --count-master                 1                 \
+    --ratio-master                 0.50              \
+    --count-wide-left              0                 \
+    --ratio-wide                   0.35              \
+    --no-smart-gaps                                  \
+    --inner-gaps                   10                \
+    --outer-gaps                   10                \
+    --border-width                 2                 \
+    --border-width-monocle         0                 \
+    --border-width-smart-gaps      0                 \
+    --border-color-focused         "0x${color10#\#}" \
+    --border-color-focused-monocle "0x586e75"        \
+    --border-color-unfocused       "0x${color0#\#}"  \
+    --log-threshold                info              \
    > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
 
 # wideriver config
