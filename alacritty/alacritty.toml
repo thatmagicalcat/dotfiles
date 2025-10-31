@@ -25,6 +25,9 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 
+[terminal]
+shell = "fish"
+
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
@@ -68,10 +71,6 @@ mods = "Control"
 [scrolling]
 history = 100000
 multiplier = 3
-
-[terminal.shell]
-args = ["--login"]
-program = "/usr/bin/fish"
 
 [window]
 dynamic_padding = true
