@@ -38,6 +38,7 @@ alias g++="/usr/bin/g++ -Wall -Wextra"
 alias tb="nc termbin.com 9999"
 alias nrw="sudo nixos-rebuild switch --flake $HOME/nix --cores 4"
 alias nv="neovide &"
+alias delete_nix_generations="sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10" # keep last 10
 
 # NixOS btw
 # alias xi="sudo xbps-install"
