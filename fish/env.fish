@@ -5,7 +5,6 @@ export BROWSER="zen"
 export XBPS_DISTDIR="~/void-packages"
 export STARSHIP_CONFIG="/home/thatmagicalcat/.config/starship.toml"
 export QT_QPA_PLATFORM="wayland"
-export GEMINI_API_KEY="AIzaSyBfBkLzTelqgCZQK9f6NZXUxfpeIlqGuGc"
 export PGDATA="/home/thatmagicalcat/postgres"
 
 # weird bindgen pointer size mismatch pls go away
@@ -30,3 +29,5 @@ export PATH="$PATH":"$ANDROID_SDK_ROOT/emulator"
 # export PATH="$PATH":"$HOME/Apps/zig-x86_64-linux-0.15.1"
 
 set -p PATH ~/.cargo/bin
+
+source $HOME/.config/fish/keys.fish

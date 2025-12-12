@@ -40,7 +40,6 @@ end
 
 function fish_right_prompt
     echo -n "[ $(short_pwd) ] $(date "+%H:%M:%S") "
-    # echo -n (date "+%H:%M:%S")
 end
 
 function silent
@@ -88,7 +87,8 @@ end
 if status --is-interactive # && type -q tinyfetch
     # pywal colors
     cat ~/.cache/wal/sequences
-    # tinyfetch
+    echo
+    tinyfetch
     greeter
 end
 
