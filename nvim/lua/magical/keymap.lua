@@ -31,3 +31,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 vim.keymap.set("n", "<C-f>", function()
     require('conform').format({ async = true, lsp_fallback = true })
 end, { desc = "Format file (conform)" })
+
+-- inline git inline diff
+vim.keymap.set("n", "<leader>d", ":Gitsigns preview_hunk_inline<CR>")
+vim.keymap.set("n", "<leader>h", ":nohl<CR>")
