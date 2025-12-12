@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Set the path to the config and style files
 config_file="${HOME}/.config/waybar/river/config"

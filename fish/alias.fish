@@ -16,9 +16,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='grep -E --color=auto'
 alias fish_config="nvim ~/.config/fish/config.fish"
 alias g="git"
 alias gs="git status"

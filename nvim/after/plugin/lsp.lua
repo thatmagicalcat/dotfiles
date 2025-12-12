@@ -139,3 +139,5 @@ lspconfig.emmet_ls.setup({
 })
 
 lspconfig.zls.setup {}
+
+vim.lsp.enable('gopls')

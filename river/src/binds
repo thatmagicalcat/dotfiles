@@ -8,6 +8,8 @@ map_ptr() {
   riverctl map-pointer normal "$@"
 }
 
+map $mod Escape spawn "systemctl suspend"
+
 map $mod Return spawn "$terminal"
 map $mod+$mod2 Return spawn "$alt_terminal"
 
@@ -105,6 +107,8 @@ map $mod B spawn "pkill -USR1 waybar"
 
 # reload config
 map $mod R spawn "$cfg/init"
+
+map $mod+Shift E spawn "$cfg/scripts/easyeffects-toggle.sh"
 
 # volume controls
 map None XF86AudioRaiseVolume spawn "$cfg/scripts/volup.sh"

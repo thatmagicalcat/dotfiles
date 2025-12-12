@@ -6,8 +6,7 @@
     "river/tags",
     "river/window"
   ],
-  "modules-center": [
-  ],
+  "modules-center": [],
   "modules-right": [
     "cpu",
     "custom/temp",

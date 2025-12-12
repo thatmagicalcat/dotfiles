@@ -28,8 +28,6 @@ style = 'bold teal'
 
 [cmd_duration]
 disabled = false
-# format = "[thread](bold yellow)::[sleep](bold)\\([$duration]($style)\\) "
-# format = "{\n  [std](bold yellow)::[thread](bold yellow)::[sleep](bold)\\([$duration]($style)\\);\n} "
 
 [palettes.rose_pine_moon]
 base = "#232136"
