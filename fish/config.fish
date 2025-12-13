@@ -84,7 +84,7 @@ function copy
     end
 end
 
-if status --is-interactive # && type -q tinyfetch
+if status --is-interactive && type -q tinyfetch
     # pywal colors
     cat ~/.cache/wal/sequences
     echo
