@@ -3,7 +3,7 @@
 
 
 format = '''
- \[\] '''
+ λ '''
 
 add_newline = true
 palette = 'rose_pine_moon'
