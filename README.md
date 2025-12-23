@@ -1,10 +1,12 @@
 # .Files
 
 # Current River config
-![river](Screenshots/river.png)
+![river1](Screenshots/river.png)
+![river2](Screenshots/river2.png)
+![river3](Screenshots/river3.png)
 
-1. Terminal - st
-2. Text Editor - Helix
+1. Terminal - alacritty/kitty
+2. Text Editor - neovim
 3. Fetch - [tinyfetch](https://github.com/thatmagicalcat/tinyfetch)
 
 ## previous dwm config
