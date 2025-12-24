@@ -28,3 +28,14 @@ vim.keymap.set('n', '<leader>F', builtin.git_files, { desc = 'Telescope git file
 vim.keymap.set('n', '<leader>s', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end, { desc = 'Telescope find files' })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function () 
+        vim.keymap.set("n", "<leader>f", function ()
+            builtin.find_files({
+                cwd = vim.b.netrw_curdir,
+            })
+        end, { buffer = true, desc = "Telescope find files in netrw" })
+    end
+})
