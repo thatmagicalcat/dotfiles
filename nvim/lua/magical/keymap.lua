@@ -35,3 +35,21 @@ end, { desc = "Format file (conform)" })
 -- inline git inline diff
 vim.keymap.set("n", "<leader>d", ":Gitsigns preview_hunk_inline<CR>")
 vim.keymap.set("n", "<leader>h", ":nohl<CR>")
+
+local scratch = function ()
+  vim.cmd("enew")
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "wipe"
+  vim.bo.swapfile = false
+  vim.bo.buflisted = false
+end
+
+vim.keymap.set("n", "<C-w>v", function()
+  vim.cmd("vsplit")
+  scratch()
+end)
+
+vim.keymap.set("n", "<C-w>s", function()
+  vim.cmd("split")
+  scratch()
+end)
