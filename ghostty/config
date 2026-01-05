@@ -1,0 +1,8 @@
+gtk-single-instance = true
+custom-shader = cursor.glsl
+# custom-shader = crt.glsl
+window-decoration = none
+background-opacity = 0.9
+shell-integration-features = no-cursor
+shell-integration-features = no-cursor
+cursor-style = bar
