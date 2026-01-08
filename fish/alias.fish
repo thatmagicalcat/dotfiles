@@ -34,10 +34,13 @@ alias gcc="/usr/bin/gcc -Wall -Wextra"
 alias g++="/usr/bin/g++ -Wall -Wextra"
 alias tb="nc termbin.com 9999"
 alias nrw="sudo nixos-rebuild switch --flake $HOME/nix --cores 4"
-alias nv="neovide &"
 alias delete_nix_generations="sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10" # keep last 10
 alias zell="zellij"
 alias v="nvim"
+function nv
+    command neovide $argv > /dev/null 2>&1 &
+    disown
+end
 
 # NixOS btw
 # alias xi="sudo xbps-install"
