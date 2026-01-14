@@ -189,6 +189,7 @@
     neovide
     hyperfine
     inkscape
+    gpu-screen-recorder-gtk
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
@@ -199,6 +200,7 @@
   programs.niri.enable = true;
   programs.nix-ld.enable = true;
   programs.fish.enable = true;
+  programs.gpu-screen-recorder.enable = true;
   # programs.waybar.enable = true;
   programs.dconf.enable = true;
   # programs.obs-studio.enableVirtualCamera = true;
