@@ -130,7 +130,7 @@
     clang
     gcc
     mold
-    pcmanfm
+    kdePackages.dolphin
     papirus-icon-theme
     arc-theme
     xdg-utils
@@ -167,9 +167,6 @@
     file
     maturin
     basedpyright
-    # haskell.compiler.ghc984Binary
-    # ormolu
-    # haskell-language-server
     v4l-utils
     docker
     galculator
@@ -190,6 +187,13 @@
     hyperfine
     inkscape
     gpu-screen-recorder-gtk
+    libclang
+    flameshot
+    # vulkan-headers
+    # vulkan-loader
+    # llvmPackages.libclang
+    # zlib
+    # marp-cli
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
