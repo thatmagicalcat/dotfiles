@@ -1,0 +1,128 @@
+@import "color.css";
+
+* {
+  color: @white;
+  border: 0;
+  padding: 0 0;
+  margin: 0;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: shade(@base, 1);
+  border-bottom: 2px solid shade(@base, 1.1);
+  border-radius: 10px; /* Optional: if floating, round corners look nice */
+}
+
+#tags {
+  margin: 4px 5px;
+  padding: 0 5px;
+  background-color: @base;
+  font-weight: bold;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#tags button {
+  color: @base;
+  border-radius: 8px;
+  padding: 0 5px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 0 2px;
+}
+
+#tags button.urgent {
+  color: @base;
+  background: none;
+}
+
+#tags button.focused * {
+  color: @red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#custom-temp,
+#custom-fan,
+#tray {
+  padding: 0 10px;
+  background-color: shade(@base, 1.1);
+  opacity: 1;
+  margin: 4px 2px;
+  border-radius: 10px;
+}
+
+/* Specific Module Colors */
+
+#clock {
+  color: @white;
+}
+
+#battery {
+  color: @white;
+}
+
+#battery.charging {
+  color: @white;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #bf616a;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  color: @white;
+}
+
+#memory {
+  color: @white;
+}
+
+#temperature,
+#custom-temp {
+  color: @teal;
+}
+
+#temperature.critical,
+#custom-temp.critical {
+  color: @red;
+}
+
+#custom-fan {
+  color: @white;
+}
+
+#tray {
+    background-color: @base;
+}
+
+#tray * {
+    color: #cdd6f4;
+}
+
+#tray menu {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #585b70;
+}
+
+#window {
+  margin: 0 10px;
+  color: #eceff4;
+}
