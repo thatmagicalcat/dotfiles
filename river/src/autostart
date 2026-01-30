@@ -9,6 +9,7 @@ autostart() {
     mako &
     copyq --start-server &
     waybar &
+    flameshot &
     alacritty --daemon
 }
 

@@ -96,7 +96,8 @@ riverctl map normal $mod F11 enter-mode passthrough
 riverctl map passthrough $mod F11 enter-mode normal
 
 # screenshot
-map $mod S spawn "sh $cfg/scripts/screenshot"
+# map $mod S spawn "sh $cfg/scripts/screenshot"
+map $mod S spawn "flameshot gui"
 map None Print spawn "sh -c 'grim - | wl-copy'"
 
 # wallpaper selector
