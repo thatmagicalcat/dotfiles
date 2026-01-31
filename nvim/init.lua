@@ -22,6 +22,10 @@ vim.opt.autoindent = true
 vim.opt.list = true
 vim.opt.listchars = 'tab:▸  ,trail:·,space:·,nbsp:␣'
 
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 1
+vim.g.netrw_winsize = 25
+
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'haskell',
     callback = function()

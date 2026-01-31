@@ -53,3 +53,4 @@ vim.keymap.set("n", "<C-w>s", function()
   vim.cmd("split")
   scratch()
 end)
+
