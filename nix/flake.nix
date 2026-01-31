@@ -3,8 +3,26 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
-    nil.url = "github:oxalica/nil";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake/beta";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    voxtype = {
+      url = "github:peteonrails/voxtype";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    opencode = {
+      url = "github:sst/opencode/?ref=v1.1.47";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,12 +40,8 @@
         inherit system;
         modules = [
           ./configuration.nix
-          {
-            config._module.args = {
-              inherit inputs;
-            };
-          }
         ];
+        specialArgs = { inherit inputs; };
       };
     };
 }

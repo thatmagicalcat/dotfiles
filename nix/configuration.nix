@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    inputs.voxtype.nixosModules.default
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -187,17 +188,29 @@
     hyperfine
     inkscape
     gpu-screen-recorder-gtk
-    libclang
     flameshot
-    # vulkan-headers
-    # vulkan-loader
+    alsa-lib
+    vulkan-headers
+    vulkan-loader
+    vulkan-tools
+    gemini-cli
     # llvmPackages.libclang
     # zlib
     # marp-cli
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
+    inputs.opencode.packages."x86_64-linux".default
   ];
+
+  # programs.opencode = {
+  #   enable = true;
+  # };
+
+  programs.voxtype = {
+    enable = true;
+    package = inputs.voxtype.packages."x86_64-linux".vulkan;
+  };
 
   programs.river-classic.enable = true;
   programs.river-classic.xwayland.enable = true;
