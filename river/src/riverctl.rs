@@ -17,3 +17,12 @@ pub fn spawn(cmd: &str) -> Result<()> {
         .with_context(|| format!("Failed to spawn command: {}", cmd))?;
     Ok(())
 }
+
+pub fn run_cmd(cmd: &str) -> Result<()> {
+    Command::new("sh")
+        .arg("-c")
+        .arg(cmd)
+        .status()
+        .with_context(|| format!("Failed to run command: {}", cmd))?;
+    Ok(())
+}

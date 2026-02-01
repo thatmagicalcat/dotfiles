@@ -1,4 +1,4 @@
-use crate::riverctl::{riverctl, spawn};
+use crate::riverctl::{riverctl, run_cmd, spawn};
 use crate::vars::*;
 use crate::wal::WalColors;
 
@@ -6,7 +6,9 @@ use anyhow::Result;
 
 pub fn run(colors: &WalColors) -> Result<()> {
     riverctl(&["default-layout", "wideriver"])?;
-    spawn("pkill wideriver")?;
+
+    // Ignore error if pkill fails (e.g. process not found)
+    _ = run_cmd("pkill wideriver");
 
     let focused_color = colors.get_hex("color10");
     let unfocused_color = colors.get_hex("color0");
