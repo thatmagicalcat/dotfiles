@@ -1,12 +1,5 @@
 #!/bin/sh
 
-cfg=$HOME/.config/river
-src=$cfg/src
-
-. $src/vars
-. $src/autostart &
-. $src/general
-. $src/binds
-. $src/layout
-. $src/rules
-. $src/input
+cd "$(dirname "$0")" || exit 1
+cargo build --release
+exec "./target/release/river-config"

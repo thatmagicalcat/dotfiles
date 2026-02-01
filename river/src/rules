@@ -1,4 +1,0 @@
-#!/bin/sh
-
-riverctl rule-add -app-id zen tags 1
-# riverctl rule-add -app-id Alacritty float
