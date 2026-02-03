@@ -1,5 +1,11 @@
 #!/bin/sh
 
+compile() {
+    notify-send -t 1000 "Compiling config..."
+    cargo build --release
+    notify-send -t 1000 "Compiled!"
+}
+
 cd "$(dirname "$0")" || exit 1
-cargo build --release
+[ "$1" == "compile" ] && compile
 exec "./target/release/river-config"

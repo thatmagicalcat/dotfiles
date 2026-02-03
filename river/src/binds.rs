@@ -111,7 +111,7 @@ pub fn run() -> Result<()> {
 
     // System
     bind!(MOD, "B", "spawn", "pkill -USR1 waybar");
-    bind!(MOD, "R", "spawn", &format!("{}/init", cfg));
+    bind!(MOD, "R", "spawn", &format!("sh -c '{}/init compile'", cfg));
 
     // Voxtype
     bind!(MOD, "V", "spawn", "voxtype record start");
