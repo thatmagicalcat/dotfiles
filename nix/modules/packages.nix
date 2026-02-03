@@ -1,0 +1,117 @@
+{ pkgs, inputs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    vim
+    neovim
+    git
+    swww
+    kitty
+    alacritty
+    fish
+    wget
+    mako
+    wideriver
+    tree
+    pywal
+    starship
+    zoxide
+    pavucontrol
+    lm_sensors
+    fastfetch
+    eza
+    bat
+    ripgrep
+    grim
+    wayshot
+    slurp
+    wl-clipboard
+    sccache
+    libnotify
+    brightnessctl
+    bc
+    youtube-music
+    obs-studio
+    copyq
+    mpv
+    eog
+    imagemagick
+    cava
+    libqalculate
+    clang
+    gcc
+    mold
+    kdePackages.dolphin
+    papirus-icon-theme
+    arc-theme
+    xdg-utils
+    shared-mime-info
+    ffmpeg
+    evil-helix
+    lua
+    lua-language-server
+    sdl3
+    python314
+    raylib
+    cmake
+    gnumake
+    llvmPackages_21.clang-tools
+    glfw3
+    wofi
+    fuzzel
+    qtscrcpy
+    ncdu
+    zig
+    zls
+    signal-desktop-bin
+    wine
+    wine64
+    winetricks
+    wineWowPackages.full
+    tor-browser
+    qpwgraph
+    man-pages
+    linux-manual
+    ani-cli
+    osu-lazer-bin
+    emacs
+    file
+    maturin
+    basedpyright
+    v4l-utils
+    docker
+    galculator
+    easyeffects
+    qt5.qtwayland
+    pkgconf
+    rofi
+    spotify
+    tealdeer
+    tmux
+    btop
+    sbcl
+    rlwrap
+    wasm-pack
+    ghostty
+    waybar
+    neovide
+    hyperfine
+    inkscape
+    gpu-screen-recorder-gtk
+    flameshot
+    alsa-lib
+    vulkan-headers
+    vulkan-loader
+    vulkan-tools
+    gemini-cli
+
+    inputs.zen-browser.packages."x86_64-linux".beta
+    inputs.nil.packages."x86_64-linux".default
+    inputs.opencode.packages."x86_64-linux".default
+  ];
+
+  programs.voxtype = {
+    enable = true;
+    package = inputs.voxtype.packages."x86_64-linux".vulkan;
+  };
+}
