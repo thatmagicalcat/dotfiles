@@ -11,11 +11,11 @@ use anyhow::Result;
 use wal::WalColors;
 
 fn main() -> Result<()> {
-    autostart::run()?;
     input::run()?;
     rules::run()?;
     binds::run()?;
     layout::run(&load_pywal_colors())?;
+    autostart::run()?;
 
     Ok(())
 }

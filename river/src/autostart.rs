@@ -1,10 +1,13 @@
 use crate::riverctl::spawn;
 use anyhow::Result;
+use std::env;
 use std::fs;
 use std::path::Path;
 
 pub fn run() -> Result<()> {
     let lockfile = "/tmp/river-autostart.lock";
+
+    env::set_current_dir(env::home_dir().expect("wtf is home directory?"))?;
 
     if !Path::new(lockfile).exists() {
         fs::File::create(lockfile)?;
