@@ -30,27 +30,27 @@ vim.diagnostic.config({
     },
 })
 
-lspconfig.lua_ls.setup({
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            runtime = {
-                -- tell the LSP you're using LuaJIT (which Neovim uses)
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                -- recognize `vim` as a global
-                globals = { "vim" },
-            },
-            workspace = {
-                -- make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
-            telemetry = { enable = false },
-        },
-    },
-})
+-- lspconfig.lua_ls.setup({
+--     capabilities = capabilities,
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- tell the LSP you're using LuaJIT (which Neovim uses)
+--                 version = "LuaJIT",
+--             },
+--             diagnostics = {
+--                 -- recognize `vim` as a global
+--                 globals = { "vim" },
+--             },
+--             workspace = {
+--                 -- make the server aware of Neovim runtime files
+--                 library = vim.api.nvim_get_runtime_file("", true),
+--                 checkThirdParty = false,
+--             },
+--             telemetry = { enable = false },
+--         },
+--     },
+-- })
 
 lspconfig.nil_ls.setup({
     capabilities = capabilities,
