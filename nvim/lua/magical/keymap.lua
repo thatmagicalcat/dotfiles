@@ -5,6 +5,7 @@ if vim.g.neovide then
 end
 
 vim.keymap.set("n", "<leader>p", "\"_dP")
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
