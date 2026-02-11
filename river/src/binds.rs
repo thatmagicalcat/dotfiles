@@ -129,6 +129,9 @@ pub fn run() -> Result<()> {
     bind!(mod_shift, "D", "spawn", "makoctl dismiss");
     bind!(mod_shift, "R", "spawn", "makoctl restore");
 
+    // Open dolphin in the ~/Shared/ folder
+    bind!(MOD, "T", "spawn", "dolphin ~/Shared");
+
     // Media Controls
     let media_keys = [
         ("XF86AudioRaiseVolume", "volup.sh"),
