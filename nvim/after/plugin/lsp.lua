@@ -15,11 +15,10 @@ local on_attach = function(client, bufnr)
 end
 
 vim.diagnostic.config({
-    virtual_text = {
-        prefix = "»",
-        spacing = 4,
-        source = "if_many",
+    virtual_lines = {
+        current_line = true,
     },
+    virtual_text = false,
     signs = true,
     underline = true,
     update_in_insert = false,
@@ -141,3 +140,5 @@ lspconfig.emmet_ls.setup({
 lspconfig.zls.setup {}
 
 vim.lsp.enable('gopls')
+vim.lsp.enable("wgsl_analyzer")
+vim.lsp.enable('ts_ls')
