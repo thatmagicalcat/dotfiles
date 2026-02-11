@@ -11,6 +11,7 @@
     ../../modules/core/nix.nix
 
     ../../modules/desktop/river.nix
+    ../../modules/desktop/niri.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/xdg.nix
 

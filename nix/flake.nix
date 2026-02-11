@@ -1,8 +1,9 @@
 {
-  description = "A very basic flake";
+  description = "Snow flakes";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";

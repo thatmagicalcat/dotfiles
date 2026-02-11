@@ -49,7 +49,6 @@
     ffmpeg
     evil-helix
     lua
-    lua-language-server
     sdl3
     python314
     raylib
@@ -104,6 +103,14 @@
     vulkan-loader
     vulkan-tools
     gemini-cli
+    wlrctl
+    vesktop
+    unzip
+    unrar-wrapper
+    wgsl-analyzer
+    zed-editor
+    typescript-language-server
+    nodejs_24
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default

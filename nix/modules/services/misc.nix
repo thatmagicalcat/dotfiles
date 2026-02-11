@@ -3,6 +3,8 @@
 {
   documentation.man.generateCaches = false;
 
+  # services.nohang.enable = true;
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";
