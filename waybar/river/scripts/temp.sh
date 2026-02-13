@@ -22,4 +22,4 @@ else
   ICON=""
 fi
 
-echo "${TEMP_INT}°C"
+echo "${ICON} ${TEMP_INT}°C"
