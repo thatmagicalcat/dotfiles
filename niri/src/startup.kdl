@@ -1,0 +1,7 @@
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "bash" "-c" "swaybg -i /home/thatmagicalcat/Wallpaper/firewatch_monochrome.jpg"
+spawn-at-startup "alacritty" "--daemon"
+spawn-at-startup "kdeconnectd"
+spawn-at-startup "kdeconnect-indicator"

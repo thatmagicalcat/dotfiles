@@ -1,0 +1,8 @@
+include "src/input.kdl"
+include "src/output.kdl"
+include "src/layout.kdl"
+include "src/startup.kdl"
+include "src/settings.kdl"
+include "src/animations.kdl"
+include "src/rules.kdl"
+include "src/binds.kdl"

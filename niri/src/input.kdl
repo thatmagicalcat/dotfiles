@@ -1,0 +1,29 @@
+input {
+    keyboard {
+        xkb { }
+
+        numlock
+        repeat-delay 300
+        repeat-rate 50
+        track-layout "global"
+    }
+
+    touchpad {
+        tap
+        drag true
+        natural-scroll
+        scroll-factor horizontal=2.0 vertical=-1.0
+    }
+
+    mouse {
+        accel-speed 0.1
+        accel-profile "flat"
+    }
+
+    // Uncomment this to make the mouse warp to the center of newly focused windows.
+    // warp-mouse-to-focus
+
+    // Focus windows and outputs automatically when moving the mouse into them.
+    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    focus-follows-mouse max-scroll-amount="0%"
+}
