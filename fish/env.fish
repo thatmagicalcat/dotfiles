@@ -1,5 +1,5 @@
 # export RUSTFLAGS="-C linker=clang -C link-arg=-fuse-ld=mold"
-export XDG_CURRENT_DESKTOP="river"
+export XDG_CURRENT_DESKTOP="niri"
 
 export DOTLINK_ROOT="/home/thatmagicalcat/dotfiles"
 export BROWSER="zen"
