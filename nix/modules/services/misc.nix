@@ -10,8 +10,8 @@
     variant = "";
   };
 
-  services.gvfs.enable = true;
-  services.displayManager.ly.enable = true;
+  # services.gvfs.enable = true;
+  # services.displayManager.ly.enable = true;
 
   services.avahi = {
     enable = true;
