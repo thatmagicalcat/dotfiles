@@ -58,6 +58,7 @@
     glfw3
     wofi
     fuzzel
+    tofi
     qtscrcpy
     ncdu
     zig
@@ -111,6 +112,11 @@
     zed-editor
     typescript-language-server
     nodejs_24
+    swaybg
+    playerctl
+    jq
+    gnome-keyring
+    pipes
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
