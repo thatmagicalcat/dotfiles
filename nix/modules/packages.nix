@@ -60,6 +60,7 @@
     fuzzel
     tofi
     qtscrcpy
+    scrcpy
     ncdu
     zig
     zls
@@ -117,6 +118,7 @@
     jq
     gnome-keyring
     pipes
+    xwayland-satellite
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default

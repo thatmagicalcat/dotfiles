@@ -17,5 +17,5 @@ if [ "$status" = "Playing" ] || [ "$status" = "Paused" ]; then
         --arg class "${status,,}" \
         '{ text: ., tooltip: $tooltip, class: $class }'
 else
-    jq -M -n '{ text: "", tooltip: "", class: "stopped" }'
+    jq -Mc -n '{ text: "", tooltip: "", class: "stopped" }'
 fi
