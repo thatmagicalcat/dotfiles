@@ -1,7 +1,8 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty" "msg" "create-window"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty" "--start-as=hidden" "--single-instance"; }
+    // Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty" "msg" "create-window"; }
     Mod+D hotkey-overlay-title="Run an Application: tofi" { spawn "bash" "-c" "$(tofi-run)"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
