@@ -89,38 +89,19 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1769740369,
-        "narHash": "sha256-xKPyJoMoXfXpDM5DFDZDsi9PHArf2k5BJjvReYXoFpM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "6308c3b21396534d8aaeac46179c14c439a89b8a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "opencode": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
       "locked": {
-        "lastModified": 1769807198,
-        "narHash": "sha256-f6TVxKV9q2yEQ9r9VCTttXLqpOrYdTEKDUJs+MuQJCQ=",
-        "owner": "sst",
-        "repo": "opencode",
-        "rev": "6cd2a6885144792b5478f6a771c6e64ffed32e4d",
+        "lastModified": 1771171602,
+        "narHash": "sha256-oU7h71n97vWQvRsmfrBgPReEiwVs5k7S619VOG45KZs=",
+        "owner": "duskyelf",
+        "repo": "nixpkgs",
+        "rev": "b51ab90b69f7c822a499c09c22db9788b2dcee3f",
         "type": "github"
       },
       "original": {
-        "owner": "sst",
-        "ref": "v1.1.47",
-        "repo": "opencode",
+        "owner": "duskyelf",
+        "ref": "update-opencode",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -157,11 +138,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769782038,
-        "narHash": "sha256-td/KdsDqLzOiZj2CrfPpMlae8adG1jXUUHlkvCbm6TU=",
+        "lastModified": 1771480504,
+        "narHash": "sha256-sz75SI0nFkzUL8RwoDO9LZMaG0/BUom9I1P4oF03Vyk=",
         "owner": "peteonrails",
         "repo": "voxtype",
-        "rev": "efcc98781fc3499011f938eed39f07bfeb01947f",
+        "rev": "1a7fb9ada8a8146c90a124bfde7ac10630d69914",
         "type": "github"
       },
       "original": {

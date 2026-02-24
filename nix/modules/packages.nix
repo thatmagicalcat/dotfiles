@@ -86,7 +86,6 @@
     qt5.qtwayland
     pkgconf
     rofi
-    spotify
     tealdeer
     tmux
     btop
@@ -119,14 +118,16 @@
     gnome-keyring
     pipes
     xwayland-satellite
+    nasm
+    wtype
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
-    inputs.opencode.packages."x86_64-linux".default
+    inputs.opencode.legacyPackages."x86_64-linux".opencode
   ];
 
   programs.voxtype = {
     enable = true;
-    package = inputs.voxtype.packages."x86_64-linux".vulkan;
+    package = inputs.voxtype.packages."x86_64-linux".onnx;
   };
 }
