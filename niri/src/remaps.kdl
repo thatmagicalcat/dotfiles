@@ -1,0 +1,7 @@
+binds {
+    Alt+J { spawn "wtype" "-m" "alt" "-k" "down"; }
+    Alt+K { spawn "wtype" "-m" "alt" "-k" "up"; }
+    Alt+L { spawn "wtype" "-m" "alt" "-k" "right"; }
+    Alt+H { spawn "wtype" "-m" "alt" "-k" "left"; }
+    Alt+B { spawn "wtype" "-m" "alt" "-M" "ctrl" "-k" "left"; }
+}
