@@ -10,5 +10,5 @@
     options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
   '';
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 }
