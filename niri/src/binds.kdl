@@ -18,6 +18,10 @@ binds {
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86MonBrightnessUp   allow-when-locked=true { spawn "/home/thatmagicalcat/dotfiles/niri/scripts/brtnsup.sh"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "/home/thatmagicalcat/dotfiles/niri/scripts/brtnsdown.sh"; }
+    XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioStop         allow-when-locked=true { spawn "playerctl" "stop"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -50,6 +54,9 @@ binds {
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
+
+    // Toggle waybar
+    Mod+B { spawn "pkill" "-USR1" "waybar";}
 
     // Mod+Shift+Left  { focus-monitor-left; }
     // Mod+Shift+Down  { focus-monitor-down; }
