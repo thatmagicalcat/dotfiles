@@ -21,7 +21,8 @@
     };
 
     opencode = {
-      url = "github:sst/opencode/?ref=v1.1.47";
+      # url = "github:sst/opencode/?ref=v1.1.47";
+      url = "github:duskyelf/nixpkgs/update-opencode";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
