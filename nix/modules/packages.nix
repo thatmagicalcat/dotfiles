@@ -50,7 +50,8 @@
     evil-helix
     lua
     sdl3
-    python314
+    python313
+    python313Packages.ipykernel
     raylib
     cmake
     gnumake
@@ -120,6 +121,7 @@
     xwayland-satellite
     nasm
     wtype
+    vscode
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
