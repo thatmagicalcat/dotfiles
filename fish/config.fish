@@ -86,7 +86,7 @@ end
 
 if status --is-interactive && type -q tinyfetch
     # pywal colors
-    cat ~/.cache/wal/sequences
+    # cat ~/.cache/wal/sequences
     echo
     tinyfetch
     greeter
