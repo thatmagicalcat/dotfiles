@@ -48,3 +48,11 @@ end, {
         return { "rs" }
     end
 })
+
+-- To change the status mood text defined in statusbar.lua
+vim.api.nvim_create_user_command("M", function(opts)
+  _G.status_mood = opts.args
+  vim.cmd("redrawstatus")
+end, {
+  nargs = "*",
+})
