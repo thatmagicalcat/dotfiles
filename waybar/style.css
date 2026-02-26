@@ -6,11 +6,11 @@
 
 window#waybar {
     background-color: #000000;
-    color: #cdd6f4;
+    color: #ffffff;
 }
 
 #waybar.overlay {
-    background-color: rgba(0, 0, 0, 0.0); /* make sure the bar is transparent */
+    background-color: #000000;
     color: #ffffff;
 }
 
@@ -23,14 +23,15 @@ window#waybar {
     padding: 10px 0;
 }
 
-#clock { color: #f5c2e7; }
-#cpu { color: #89b4fa; }
-#custom-cpuspeed { color: #89dceb; }
-#custom-temp { color: #fab387; }
-#custom-fan { color: #a6e3a1; }
-#memory { color: #f9e2af; }
-#disk { color: #94e2d5; }
-#custom-music { color: #f5c2e7; }
-#battery { color: #a6e3a1; }
+#clock { color: #ffffff; }
+#cpu { color: #ffffff; }
+#custom-cpuspeed { color: #ffffff; }
+#custom-temp { color: #ffffff; }
+#custom-temp.critical { color: #f38ba8; }
+#custom-fan { color: #ffffff; }
+#memory { color: #ffffff; }
+#disk { color: #ffffff; }
+#custom-music { color: #ffffff; }
+#battery { color: #ffffff; }
 #battery.warning { color: #fab387; }
 #battery.critical { color: #f38ba8; }

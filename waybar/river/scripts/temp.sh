@@ -14,12 +14,16 @@ TEMP_INT=${TEMP%.*}
 # Emoji thermometer + color
 if [ "$TEMP_INT" -ge 80 ]; then
   ICON=""
+  CLASS="critical"
 elif [ "$TEMP_INT" -ge 65 ]; then
   ICON=""
+  CLASS="normal"
 elif [ "$TEMP_INT" -ge 50 ]; then
   ICON=""
+  CLASS="normal"
 else
   ICON=""
+  CLASS="normal"
 fi
 
-echo "${ICON} ${TEMP_INT}°C"
+echo "{\"text\": \"${ICON} ${TEMP_INT}°C\", \"class\": \"${CLASS}\"}"
