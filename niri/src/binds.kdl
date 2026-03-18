@@ -225,9 +225,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Mod+S { screenshot; }
-    // Mod+S { spawn "flameshot" "gui"; }
+    Print { spawn "niri" "msg" "action" "screenshot" "-p=false"; }
+    Mod+S { spawn "bash" "-c" "rm /tmp/ss.png; flameshot gui -p /tmp/ss.png; cat /tmp/ss.png | wl-copy"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
