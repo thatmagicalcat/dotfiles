@@ -26,6 +26,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 1
 vim.g.netrw_winsize = 25
 
+-- only one statusline
+vim.opt.laststatus = 3
+
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'haskell',
     callback = function()
