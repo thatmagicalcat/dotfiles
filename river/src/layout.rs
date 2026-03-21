@@ -8,7 +8,7 @@ pub fn run(colors: &WalColors) -> Result<()> {
     riverctl(&["default-layout", "wideriver"])?;
 
     // Ignore error if pkill fails (e.g. process not found)
-    _ = run_cmd("pkill wideriver");
+    let _ = run_cmd("pkill wideriver");
 
     let focused_color = colors.get_hex("color10");
     let unfocused_color = colors.get_hex("color0");
@@ -40,20 +40,20 @@ pub fn run(colors: &WalColors) -> Result<()> {
 
     // Layout binds
     let cmds = [
-        ("up", "--layout monocle"),
-        ("down", "--layout wide"),
-        ("left", "--layout left"),
-        ("right", "--layout right"),
-        ("M", "--layout-toggle"),
-        ("L", "--ratio +0.025"),
-        ("H", "--ratio -0.025"),
-        ("E", "--stack even"),
-        ("W", "--stack dwindle"),
-        ("I", "--stack diminish"),
+        (format!("{}+up", MOD), "--layout monocle"),
+        (format!("{}+down", MOD), "--layout wide"),
+        (format!("{}+left", MOD), "--layout left"),
+        (format!("{}+right", MOD), "--layout right"),
+        (format!("{}+M", MOD), "--layout-toggle"),
+        (format!("{}+L", MOD), "--ratio +0.025"),
+        (format!("{}+H", MOD), "--ratio -0.025"),
+        (format!("{}+E", MOD), "--stack even"),
+        (format!("{}+W", MOD), "--stack dwindle"),
+        (format!("{}+I", MOD), "--stack diminish"),
     ];
 
     for (combo, arg) in cmds {
-        riverctl(&["map", "normal", MOD, combo, "send-layout-cmd", "wideriver", arg])?;
+        riverctl(&["map", "normal", &combo, "send-layout-cmd", "wideriver", arg])?;
     }
 
     Ok(())

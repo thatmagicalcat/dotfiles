@@ -111,7 +111,7 @@ pub fn run() -> Result<()> {
 
     // System
     bind!(MOD, "B", "spawn", "pkill -USR1 waybar");
-    bind!(MOD, "R", "spawn", &format!("sh -c '{}/init compile'", cfg));
+    bind!(MOD, "R", "spawn", &format!("{}/init", cfg));
 
     // Voxtype
     bind!(MOD, "V", "spawn", "voxtype record start");
@@ -128,9 +128,6 @@ pub fn run() -> Result<()> {
     // Notifications
     bind!(mod_shift, "D", "spawn", "makoctl dismiss");
     bind!(mod_shift, "R", "spawn", "makoctl restore");
-
-    // Open dolphin in the ~/Shared/ folder
-    bind!(MOD, "T", "spawn", "dolphin ~/Shared");
 
     // Media Controls
     let media_keys = [
