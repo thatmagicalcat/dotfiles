@@ -22,11 +22,11 @@ return {
                 update_delay_ms = 300,
             },
             ghost_text = {
-                enabled = true,
+                enabled = false,
                 show_with_menu = false,
             },
             menu = {
-                auto_show = false,
+                auto_show = true,
             }
         },
         sources = {
