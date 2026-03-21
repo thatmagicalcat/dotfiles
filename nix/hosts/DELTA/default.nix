@@ -21,6 +21,7 @@
     ../../modules/services/misc.nix
     ../../modules/services/battery.nix
     ../../modules/services/autocpufreq.nix
+    ../../modules/services/undervolt.nix
 
     ../../modules/packages.nix
   ];

@@ -122,6 +122,8 @@
     nasm
     wtype
     vscode
+    keyd
+    waydroid
 
     inputs.zen-browser.packages."x86_64-linux".beta
     inputs.nil.packages."x86_64-linux".default
@@ -131,5 +133,24 @@
   programs.voxtype = {
     enable = true;
     package = inputs.voxtype.packages."x86_64-linux".onnx;
+  };
+
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs.waydroid.overrideAttrs (old: {
+      postPatch = (old.postPatch or "") + ''
+        sed -i 's/LXC_USE_NFT="false"/LXC_USE_NFT="true"/' data/scripts/waydroid-net.sh
+      '';
+      postFixup = (old.postFixup or "") + ''
+        wrapProgram $out/lib/waydroid/data/scripts/waydroid-net.sh \
+          --prefix PATH ":" ${pkgs.lib.makeBinPath [ pkgs.nftables ]}
+      '';
+    });
+  };
+  networking.firewall.trustedInterfaces = [ "waydroid0" ];
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv4.conf.all.forwarding" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
   };
 }
