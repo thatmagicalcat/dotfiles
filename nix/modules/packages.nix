@@ -2,16 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vim
     neovim
     git
     swww
     kitty
-    alacritty
     fish
     wget
     mako
-    wideriver
     tree
     pywal
     starship
@@ -31,7 +28,6 @@
     brightnessctl
     bc
     youtube-music
-    obs-studio
     copyq
     mpv
     eog
@@ -56,16 +52,16 @@
     cmake
     gnumake
     llvmPackages_21.clang-tools
-    glfw3
-    wofi
-    fuzzel
+    # glfw3
+    # wofi
+    # fuzzel
     tofi
     qtscrcpy
     scrcpy
     ncdu
     zig
     zls
-    signal-desktop-bin
+    # signal-desktop-bin
     wine
     wine64
     winetricks
@@ -78,7 +74,7 @@
     osu-lazer-bin
     emacs
     file
-    maturin
+    # maturin
     basedpyright
     v4l-utils
     docker
@@ -93,9 +89,9 @@
     sbcl
     rlwrap
     wasm-pack
-    ghostty
+    # ghostty
     waybar
-    neovide
+    # neovide
     hyperfine
     inkscape
     gpu-screen-recorder-gtk
@@ -120,20 +116,37 @@
     pipes
     xwayland-satellite
     nasm
+    fasm
     wtype
     vscode
     keyd
     waydroid
+    luarocks
+    graphviz
+    fd
+    qemu
+    grub2
+    xorriso
+    jujutsu
+    zathura
+    texlab
+    (texlive.withPackages (ps: with ps; [
+        scheme-basic
+        darkmode
+        latexmk
+        latexindent
+        # other packages
+    ]))
 
     inputs.zen-browser.packages."x86_64-linux".beta
-    inputs.nil.packages."x86_64-linux".default
+    # inputs.nil.packages."x86_64-linux".default
     inputs.opencode.legacyPackages."x86_64-linux".opencode
   ];
 
-  programs.voxtype = {
-    enable = true;
-    package = inputs.voxtype.packages."x86_64-linux".onnx;
-  };
+  # programs.voxtype = {
+    # enable = true;
+    # package = inputs.voxtype.packages."x86_64-linux".onnx;
+  # };
 
   virtualisation.waydroid = {
     enable = true;

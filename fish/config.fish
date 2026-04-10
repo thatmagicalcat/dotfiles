@@ -85,8 +85,6 @@ function copy
 end
 
 if status --is-interactive && type -q tinyfetch
-    # pywal colors
-    cat ~/.cache/wal/sequences
     echo
     tinyfetch
     greeter
@@ -154,3 +152,7 @@ end
 source $HOME/.config/fish/alias.fish
 source $HOME/.config/fish/env.fish
 source $HOME/.config/fish/completions/*.fish
+
+# # terminal-wakatime setup
+# set -gx PATH "$HOME/.wakatime" $PATH
+# terminal-wakatime init fish | source

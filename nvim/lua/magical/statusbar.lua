@@ -25,7 +25,11 @@ function _G.lsp_diagnostics()
       result = result .. " I:" .. info
     end
 
-    return result
+    if result == "" then
+        return ""
+    else
+        return "[" .. string.sub(result, 2) .. "]"
+    end
 end
 
 function _G.file_size()
@@ -51,5 +55,5 @@ vim.o.statusline =
   "%{v:lua.get_status_mood()}" ..
   "%= " ..
   "%Y " ..
-  "%{v:lua.lsp_diagnostics()}" ..
+  "%{v:lua.lsp_diagnostics()} " ..
   "%c %p%% "

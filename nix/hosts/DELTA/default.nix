@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware.nix
-    inputs.voxtype.nixosModules.default
 
     ../../modules/core/boot.nix
     ../../modules/core/network.nix

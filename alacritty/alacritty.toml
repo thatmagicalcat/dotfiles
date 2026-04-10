@@ -11,19 +11,19 @@ TERM = "alacritty"
 size = 14
 
 [font.bold]
-family = "JetbrainsMono Nerd Font"
+family = "Lilex Nerd Font"
 style = "ExtraBold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "Lilex Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Lilex Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Lilex Nerd Font"
 
 [terminal]
 shell = "fish"

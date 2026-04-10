@@ -37,7 +37,7 @@
     "custom/cpuspeed": {
         "interval": 5,
         "exec": "awk '/cpu MHz/ {sum+=$4; count++} END {printf \"%.1fGHz\", sum/count/1000}' /proc/cpuinfo",
-        "format": " {}",
+        "format": "󰓅 {}",
         "rotate": 90,
         "tooltip": false
     },
@@ -70,6 +70,7 @@
         "interval": 60,
         "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""],
+        "format-charging": "  {icon}  {capacity}%",
         "rotate": 90,
         "tooltip": true
     },

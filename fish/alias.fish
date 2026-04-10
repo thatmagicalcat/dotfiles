@@ -30,8 +30,6 @@ alias cleanup_rust_projects="/usr/bin/ls | xargs --replace={} rm -rf ./{}/target
 alias py="python3"
 alias btctl="bluetoothctl"
 alias bigpkgs="for pkg in (xbps-query -l | awk '{print $2}'); echo (xbps-query -p installed_size $pkg 2>/dev/null) $pkg; end | sort -h"
-alias gcc="/usr/bin/gcc -Wall -Wextra"
-alias g++="/usr/bin/g++ -Wall -Wextra"
 alias tb="nc termbin.com 9999"
 alias nrw="sudo nixos-rebuild switch --flake $HOME/nix --cores 4"
 alias delete_nix_generations="sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10" # keep last 10
