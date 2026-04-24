@@ -2,8 +2,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-        local lspconfig = require("lspconfig")
-
         -- Keybinds
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
         vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
@@ -11,11 +9,17 @@ return {
         vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "References" })
         vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "Rename" })
 
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-        local on_attach = function(client, bufnr)
-            vim.lsp.inlay_hint.enable(true)
-        end
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("magical-lsp-attach", { clear = true }),
+            callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if client and client:supports_method("textDocument/inlayHint") then
+                    vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+                end
+            end,
+        })
 
         vim.diagnostic.config({
             virtual_lines = { current_line = true },
@@ -27,13 +31,14 @@ return {
             float = { source = "if_many", border = "rounded" },
         })
 
-        lspconfig.nil_ls.setup({ capabilities = capabilities, on_attach = on_attach })
-
-        lspconfig.rust_analyzer.setup({
+        vim.lsp.config("*", {
             capabilities = capabilities,
-            on_attach = on_attach,
+        })
+
+        vim.lsp.config("rust_analyzer", {
             settings = {
                 ["rust-analyzer"] = {
+                    diagnostics = { disabled = {"inactive-code"} },
                     check = { command = "clippy" },
                     inlayHints = {
                         bindingModeHints = { enable = true },
@@ -50,39 +55,42 @@ return {
             },
         })
 
-        lspconfig.clangd.setup({ capabilities = capabilities, cmd = { "clangd", "--fallback-style=LLVM" } })
+        vim.lsp.config("clangd", {
+            cmd = { "clangd", "--fallback-style=LLVM" },
+        })
 
-        lspconfig.hls.setup({
-            capabilities = capabilities,
-            settings = { haskell = { formattingProvider = 'ormolu' } },
+        vim.lsp.config("hls", {
+            settings = { haskell = { formattingProvider = "ormolu" } },
         })
 
         local venv = os.getenv("VIRTUAL_ENV")
         local python_path = venv and (venv .. "/bin/python") or "python3"
 
-        lspconfig.basedpyright.setup({
+        vim.lsp.config("basedpyright", {
             settings = { python = { pythonPath = python_path } },
         })
 
-        local servers = { "ts_ls", "html", "cssls", "jsonls", "tailwindcss" }
-        for _, lsp in ipairs(servers) do
-            lspconfig[lsp].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-            }
-        end
-
-        lspconfig.emmet_ls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
+        vim.lsp.config("emmet_ls", {
             filetypes = { "html", "javascriptreact", "typescriptreact" },
         })
 
-        lspconfig.zls.setup {}
-        lspconfig.nim_langserver.setup {}
-
-        vim.lsp.enable('gopls')
-        vim.lsp.enable("wgsl_analyzer")
-        vim.lsp.enable('ts_ls')
+        vim.lsp.enable({
+            "qmlls",
+            "nil_ls",
+            "rust_analyzer",
+            "clangd",
+            "hls",
+            "basedpyright",
+            "ts_ls",
+            "html",
+            "cssls",
+            "jsonls",
+            "tailwindcss",
+            "emmet_ls",
+            "zls",
+            "nim_langserver",
+            "gopls",
+            "wgsl_analyzer",
+        })
     end
 }

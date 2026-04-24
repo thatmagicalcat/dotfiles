@@ -5,6 +5,15 @@
     nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
+    quickshell = {
+      # add ?ref=<tag> to track a tag
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      # THIS IS IMPORTANT
+      # Mismatched system dependencies will lead to crashes and other issues.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -18,3 +18,9 @@ output "eDP-1" {
     // automatically.
     position x=0 y=0
 }
+
+output "virtual-1" {
+    mode "1280x800@48"
+    scale 1.0
+    transform "normal"
+}

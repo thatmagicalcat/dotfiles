@@ -129,7 +129,11 @@
     xorriso
     jujutsu
     zathura
+    tinygo
     texlab
+    fzf
+    brotli
+    sunshine
     (texlive.withPackages (ps: with ps; [
         scheme-basic
         darkmode
@@ -138,10 +142,13 @@
         # other packages
     ]))
 
+    inputs.quickshell.packages."x86_64-linux".default
     inputs.zen-browser.packages."x86_64-linux".beta
     # inputs.nil.packages."x86_64-linux".default
     inputs.opencode.legacyPackages."x86_64-linux".opencode
   ];
+
+  qt.enable = true;
 
   # programs.voxtype = {
     # enable = true;
