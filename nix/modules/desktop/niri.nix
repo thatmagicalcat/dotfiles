@@ -1,6 +1,6 @@
 { ... }:
 
 {
-  programs.niri.enable = true;
-  programs.niri.useNautilus = false;
+  # programs.niri.enable = true;
+  # programs.niri.useNautilus = false;
 }

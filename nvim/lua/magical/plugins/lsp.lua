@@ -6,6 +6,7 @@ return {
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
         vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Definition" })
+        vim.keymap.set("n", "<leader>gi", vim.lsp.buf.incoming_calls, { desc = "Incoming calls "})
         vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "References" })
         vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { desc = "Rename" })
 
@@ -35,6 +36,22 @@ return {
             capabilities = capabilities,
         })
 
+        vim.lsp.config("ts_ls", {
+            settings = {
+                typescript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = "all", -- or "literals"
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    },
+                },
+            }
+        })
+
         vim.lsp.config("rust_analyzer", {
             settings = {
                 ["rust-analyzer"] = {
@@ -60,7 +77,7 @@ return {
         })
 
         vim.lsp.config("hls", {
-            settings = { haskell = { formattingProvider = "ormolu" } },
+            -- settings = { haskell = { formattingProvider = "" } },
         })
 
         local venv = os.getenv("VIRTUAL_ENV")

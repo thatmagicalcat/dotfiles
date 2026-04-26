@@ -156,3 +156,5 @@ source $HOME/.config/fish/completions/*.fish
 # # terminal-wakatime setup
 # set -gx PATH "$HOME/.wakatime" $PATH
 # terminal-wakatime init fish | source
+
+direnv hook fish | source

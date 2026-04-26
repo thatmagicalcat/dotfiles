@@ -41,6 +41,9 @@
     papirus-icon-theme
     arc-theme
     xdg-utils
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal
     shared-mime-info
     ffmpeg
     evil-helix
@@ -52,6 +55,7 @@
     cmake
     gnumake
     llvmPackages_21.clang-tools
+    lldb
     # glfw3
     # wofi
     # fuzzel
@@ -102,13 +106,13 @@
     vulkan-tools
     gemini-cli
     wlrctl
-    vesktop
     unzip
     unrar-wrapper
     wgsl-analyzer
     zed-editor
     typescript-language-server
-    nodejs_24
+    bun
+    # nodejs_24
     swaybg
     playerctl
     jq
@@ -134,6 +138,10 @@
     fzf
     brotli
     sunshine
+    nodejs_20
+    vesktop
+    gh
+    ormolu
     (texlive.withPackages (ps: with ps; [
         scheme-basic
         darkmode
@@ -142,13 +150,17 @@
         # other packages
     ]))
 
-    inputs.quickshell.packages."x86_64-linux".default
     inputs.zen-browser.packages."x86_64-linux".beta
     # inputs.nil.packages."x86_64-linux".default
     inputs.opencode.legacyPackages."x86_64-linux".opencode
   ];
 
   qt.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   # programs.voxtype = {
     # enable = true;

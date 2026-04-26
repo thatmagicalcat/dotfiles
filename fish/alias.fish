@@ -36,6 +36,7 @@ alias nrw="sudo nixos-rebuild switch --flake $HOME/nix --cores 4"
 alias delete_nix_generations="sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +10" # keep last 10
 alias zell="zellij"
 alias v="nvim"
+alias jjm="jj --config 'revset-aliases.\"immutable_heads()\"=\"none()\"'"
 function nv
     command neovide $argv > /dev/null 2>&1 &
     disown

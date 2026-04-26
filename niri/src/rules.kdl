@@ -22,12 +22,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^zen-beta$"
-    // This allows the browser's own transparency to show through
-    // opacity 0.95 
-    // Optional: If the window has black bars/background, 
-    // try forcing it to omit client-side decorations
-    draw-border-with-background false
+    match app-id="zen-beta"
+    draw-border-with-background true
+    background-effect {
+        blur false
+    }
 }
 
 window-rule {
@@ -35,13 +34,12 @@ window-rule {
     open-floating true
 }
 
-// window-rule {
-//     match app-id="kitty"
-// 
-//     background-effect {
-//         blur true
-//     }
-// }
+window-rule {
+    match app-id="kitty"
+    background-effect {
+        blur true
+    }
+}
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)

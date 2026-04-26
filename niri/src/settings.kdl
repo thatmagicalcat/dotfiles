@@ -16,3 +16,9 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 hotkey-overlay {
     skip-at-startup
 }
+
+blur {
+    passes 2
+    offset 3.0
+    saturation 0.8
+}

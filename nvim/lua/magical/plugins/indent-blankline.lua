@@ -4,7 +4,13 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
     config = function()
-        require("ibl").setup()
+        require("ibl").setup({
+            indent = { char = "│" },
+            scope = {
+                enabled = false,
+            },
+        })
+
 
         local highlight = {
             "RainbowRed",
