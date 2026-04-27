@@ -18,15 +18,15 @@ return {
             },
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 300,
-                update_delay_ms = 300,
+                auto_show_delay_ms = 200,
+                update_delay_ms = 200,
             },
             ghost_text = {
-                enabled = true,
+                enabled = false,
                 show_with_menu = false,
             },
             menu = {
-                auto_show = false,
+                auto_show = true,
             }
         },
         sources = {
