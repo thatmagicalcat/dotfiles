@@ -23,9 +23,9 @@ window-rule {
 
 window-rule {
     match app-id="zen-beta"
-    draw-border-with-background true
+    draw-border-with-background false
     background-effect {
-        blur false
+        blur true
     }
 }
 

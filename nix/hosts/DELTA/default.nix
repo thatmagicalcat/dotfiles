@@ -15,6 +15,7 @@
     ../../modules/desktop/xdg.nix
 
     ../../modules/services/audio.nix
+    ../../modules/services/docker.nix
     ../../modules/services/bluetooth.nix
     ../../modules/services/printing.nix
     ../../modules/services/misc.nix

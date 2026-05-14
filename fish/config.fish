@@ -22,6 +22,18 @@ if status --is-interactive
     source ("/run/current-system/sw/bin/starship" init fish --print-full-init | psub)
 end
 
+# if status --is-interactive
+#     and type -q tmux
+#     and test -z "$TMUX"
+#     and not string match -qr '^screen|^tmux' "$TERM"
+#
+#     if tmux has-session -t main 2>/dev/null
+#         exec tmux -u attach -t main
+#     else
+#         exec tmux -u new -s main
+#     end
+# end
+
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command

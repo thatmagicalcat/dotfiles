@@ -12,8 +12,8 @@ export PGDATA="/home/thatmagicalcat/postgres"
 export BINDGEN_EXTRA_CLANG_ARGS="--target=x86_64-unknown-linux-gnu"
 
 # Android stuff
-export ANDROID_HOME="$HOME/Android/sdk"
-export ANDROID_SDK_ROOT="$HOME/Android/sdk"
+# export ANDROID_HOME="$HOME/Android/sdk"
+# export ANDROID_SDK_ROOT="$HOME/Android/sdk"
 
 export RUSTC_WRAPPER=sccache
 export FLYCTL_INSTALL="/home/thatmagicalcat/.fly"

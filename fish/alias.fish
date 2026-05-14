@@ -37,13 +37,4 @@ alias delete_nix_generations="sudo nix-env --profile /nix/var/nix/profiles/syste
 alias zell="zellij"
 alias v="nvim"
 alias jjm="jj --config 'revset-aliases.\"immutable_heads()\"=\"none()\"'"
-function nv
-    command neovide $argv > /dev/null 2>&1 &
-    disown
-end
-
-# NixOS btw
-# alias xi="sudo xbps-install"
-# alias xr="sudo xbps-remove"
-# alias xq="xbps-query"
-# alias xivp="sudo xbps-install --repository $HOME/void-packages/hostdir/binpkgs "
+alias tmux="tmux -u"

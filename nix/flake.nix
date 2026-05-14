@@ -10,20 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nil = {
-    #   url = "github:oxalica/nil";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # voxtype = {
-    #   url = "github:peteonrails/voxtype";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    opencode = {
-      # url = "github:sst/opencode/?ref=v1.1.47";
-      url = "github:duskyelf/nixpkgs/update-opencode";
-      # inputs.nixpkgs.follows = "nixpkgs";
+    ytm-player = {
+      url = "github:peternaame-boop/ytm-player";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -31,11 +20,13 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations.DELTA = nixpkgs.lib.nixosSystem {
@@ -43,7 +34,7 @@
         modules = [
           ./hosts/DELTA
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit unstable; };
       };
     };
 }

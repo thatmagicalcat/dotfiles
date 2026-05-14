@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, unstable, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -49,6 +49,7 @@
     evil-helix
     lua
     sdl3
+    yt-dlp
     python313
     python313Packages.ipykernel
     raylib
@@ -80,8 +81,8 @@
     file
     # maturin
     basedpyright
+    pyrefly
     v4l-utils
-    docker
     galculator
     easyeffects
     qt5.qtwayland
@@ -122,7 +123,6 @@
     nasm
     fasm
     wtype
-    vscode
     keyd
     waydroid
     luarocks
@@ -139,9 +139,20 @@
     brotli
     sunshine
     nodejs_20
+    rclone
+    rclone-ui
     vesktop
     gh
     ormolu
+    bubblewrap
+    nil
+    lua-language-server
+    go
+    obsidian
+    telegram-desktop
+    elan
+    opencode
+
     (texlive.withPackages (ps: with ps; [
         scheme-basic
         darkmode
@@ -150,9 +161,11 @@
         # other packages
     ]))
 
+    inputs.ytm-player.packages.${system}.default
     inputs.zen-browser.packages."x86_64-linux".beta
     # inputs.nil.packages."x86_64-linux".default
-    inputs.opencode.legacyPackages."x86_64-linux".opencode
+
+    # unstable.voxtype
   ];
 
   qt.enable = true;
@@ -161,6 +174,8 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  programs.adb.enable = true;
 
   # programs.voxtype = {
     # enable = true;
@@ -179,6 +194,7 @@
       '';
     });
   };
+
   networking.firewall.trustedInterfaces = [ "waydroid0" ];
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;

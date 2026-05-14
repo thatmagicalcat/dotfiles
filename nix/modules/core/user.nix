@@ -22,6 +22,7 @@
       "networkmanager"
       "wheel"
       "seat"
+      "adbusers"
     ];
     shell = pkgs.fish;
     packages = [ ];

@@ -1,6 +1,8 @@
 input {
     keyboard {
-        xkb { }
+        xkb {
+            options "ctrl:nocaps"
+        }
 
         numlock
         repeat-delay 300
