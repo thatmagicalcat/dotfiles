@@ -10,10 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ytm-player = {
-      url = "github:peternaame-boop/ytm-player";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # ytm-player = {
+    #   url = "github:peternaame-boop/ytm-player";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =

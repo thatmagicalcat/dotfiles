@@ -74,7 +74,6 @@
     tor-browser
     qpwgraph
     man-pages
-    linux-manual
     ani-cli
     osu-lazer-bin
     emacs
@@ -161,7 +160,7 @@
         # other packages
     ]))
 
-    inputs.ytm-player.packages.${system}.default
+    # inputs.ytm-player.packages.${system}.default
     inputs.zen-browser.packages."x86_64-linux".beta
     # inputs.nil.packages."x86_64-linux".default
 
